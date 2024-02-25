@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\StaticController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//using the --invoke method, simply dedicates a single action to a controller
+
+
+//static pages 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/contact',  [StaticController::class, 'contact']);
+Route::get('/about',  [StaticController::class, 'about']);
+Route::get('/testify',  [StaticController::class, 'testimonials']);
+Route::get('test', [TestController::class, 'test']);
