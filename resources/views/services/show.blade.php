@@ -32,7 +32,7 @@
         <!-- Request Form Section -->
         <section id="request-form">
             <h2>Request a Quote</h2>
-            <form action="/submit-request" method="POST">
+            <form action="/quote" method="POST">
                 @csrf
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
@@ -54,7 +54,6 @@
                     <label for="pickup-location">Pick-up Location:</label><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Close Landmark" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="City" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Region (optional)"><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="State" required><br>
@@ -67,7 +66,6 @@
                     <label for="pickup-location">Dropoff Location:</label><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Close Landmark" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="City" required><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="Region (optional)"><br>
                     <input type="text" id="pickup-location" name="pickup-location" placeholder="State" required><br>

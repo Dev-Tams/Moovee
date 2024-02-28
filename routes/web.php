@@ -22,9 +22,7 @@ use App\Http\Controllers\ServicesController;
 
 
 //static pages 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [StaticController::class, 'index']);
 Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
 Route::get('/testify',  [StaticController::class, 'testimonials']);
@@ -34,3 +32,4 @@ Route::get('test', [TestController::class, 'test']);
 //routes for Transportation services
 Route::get('/services', [ServicesController::class, 'index']);
 Route::get('/services/book', [ServicesController::class, 'show']);
+Route::post('/quote', [ServicesController::class, 'store']);

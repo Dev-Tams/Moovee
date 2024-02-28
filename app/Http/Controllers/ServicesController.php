@@ -15,4 +15,8 @@ class ServicesController extends Controller
     public function show(){
         return view('services/show');
     }
+
+    public function store(){
+       
+    }
 }
