@@ -32,7 +32,7 @@
         <!-- Request Form Section -->
         <section id="request-form">
             <h2>Request a Quote</h2>
-            <form action="/quote" method="POST">
+            <form action="{{route ('quote') }}" method="POST">
                 @csrf
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
@@ -52,24 +52,24 @@
 
                 <div class="pickup">
                     <label for="pickup-location">Pick-up Location:</label><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Close Landmark" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="City" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Region (optional)"><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="State" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Country (auto-detected)" required><br>
+                    <input type="text" id="pickup-location" name="pickup_street_address" placeholder="Street Address" required><br>
+                    <input type="text" id="pickup-location" name="pickup_landmark" placeholder="Close Landmark" required><br>
+                    <input type="text" id="pickup-location" name="pickup_city" placeholder="City" required><br>
+                    <input type="text" id="pickup-location" name="pickup_Region" placeholder="Region (optional)"><br>
+                    <input type="text" id="pickup-location" name="pickup_State" placeholder="State" required><br>
+                    <input type="text" id="pickup-location" name="pickup_country" placeholder="Country (auto-detected)" required><br>
 
 
                 </div>
 
                 <div class="Dropoff">
-                    <label for="pickup-location">Dropoff Location:</label><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Street Address" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Close Landmark" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="City" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Region (optional)"><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="State" required><br>
-                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Country (auto-detected)" required><br>
+                    <label for="dropoff-location">Dropoff Location:</label><br>
+                    <input type="text" id="dropoff-location" name="dropoff_street_address" placeholder="Street Address" required><br>
+                    <input type="text" id="dropoff-location" name="dropoff_landmark" placeholder="Close Landmark" required><br>
+                    <input type="text" id="dropoff-location" name="dropoff_city" placeholder="City" required><br>
+                    <input type="text" id="dropoff-location" name="dropoff_region" placeholder="Region (optional)"><br>
+                    <input type="text" id="dropoff-location" name="dropoff_state" placeholder="State" required><br>
+                    <input type="text" id="dropoff-location" name="dropoff_country" placeholder="Country (auto-detected)" required><br>
 
 
                 </div>
@@ -84,6 +84,14 @@
                 <textarea name="weight-desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items"></textarea>
                 <!-- reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div><br>
+                <div>
+                    <input type="checkbox" id="accept_terms" name="accept_terms">
+                    <label for="accept_terms">Accept Terms <span><a href="/#">T&C</a></span></label>
+
+                </div>
+
+
+
 
                 <input type="submit" value="Get Quote">
             </form>

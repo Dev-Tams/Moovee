@@ -32,4 +32,4 @@ Route::get('test', [TestController::class, 'test']);
 //routes for Transportation services
 Route::get('/services', [ServicesController::class, 'index']);
 Route::get('/services/book', [ServicesController::class, 'show']);
-Route::post('/quote', [ServicesController::class, 'store']);
+Route::post('/quote', [ServicesController::class, 'store'])->name('quote');
