@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Services;
-use Illuminate\Http\Request;
+use App\Models\Service;
+use App\Http\Requests\ServiceRequest;
 
 
 class ServicesController extends Controller
@@ -20,32 +20,35 @@ class ServicesController extends Controller
         return view('services/show');
     }
 
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        // dd(request()->all());
+
 
         //create a new quote using the db 
         //save to the db
         //redirect
-        $validatedData =$request->validate([
-            'name'=> 'required|string|min:2|max:50',
-            'email'=> 'required|string|min:6|max:255|email',
-            'service-type' => 'required|string|max:255',
-            'pickup-location' => 'required|string',
-            'dropoff-location' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'required|date_format:H:i', 
-            'weight-desc' => 'nullable|string',
-            'accept_terms' => 'exclude|required|accepted'
-        ]);
+        $validated = $request->validated();
+           
+            // Create a new instance of the Service model
+            $service = new Service();
 
+            // Assign validated data to model attributes
+            $service->name = $request['name'];
+            $service->email = $request['email'];
+            $service->phone = $request['phone'];
+            $service->service_type = $request['service-type'];
+            $service->pickup_location = $request['pickup-location'];
+            $service->dropoff_location = $request['dropoff-location'];
+            $service->date = $request['date'];
+            $service->time = $request['time'];
+            $service->weight_desc = $request['weight-desc'];
 
-        $quote = new Services();
-        $quote->name = $validatedData['name'];
-        $quote->email = $validatedData['email'];
-        $quote->phone = $validatedData['phone'];
-        // Assign other fields as well
-        $quote->save();
+            // Save the record to the database
+            $service->save();
 
-    }
+            // Optionally, you can return a response or redirect to another page
+            return response()->json(['message' => 'Service request submitted successfully'], 200);
+            redirect('/');
+        
+}
 }
