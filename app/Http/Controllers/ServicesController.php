@@ -24,31 +24,31 @@ class ServicesController extends Controller
     {
 
 
-        //create a new quote using the db 
-        //save to the db
-        //redirect
-        $validated = $request->validated();
-           
-            // Create a new instance of the Service model
-            $service = new Service();
-
-            // Assign validated data to model attributes
-            $service->name = $request['name'];
-            $service->email = $request['email'];
-            $service->phone = $request['phone'];
-            $service->service_type = $request['service-type'];
-            $service->pickup_location = $request['pickup-location'];
-            $service->dropoff_location = $request['dropoff-location'];
-            $service->date = $request['date'];
-            $service->time = $request['time'];
-            $service->weight_desc = $request['weight-desc'];
-
-            // Save the record to the database
-            $service->save();
-
-            // Optionally, you can return a response or redirect to another page
-            return response()->json(['message' => 'Service request submitted successfully'], 200);
-            redirect('/');
+        $validatedData = $request->validated();
+        $service = new Service();
         
+        $service->name = $validatedData['name'];
+        $service->email = $validatedData['email'];
+        $service->phone = $validatedData['phone'];
+        $service->service_type = $validatedData['service-type'];
+        $service->pickup_street_address = $validatedData['pickup_street_address'];
+        $service->pickup_landmark = $validatedData['pickup_landmark'];
+        $service->pickup_city = $validatedData['pickup_city'];
+        $service->pickup_region = $validatedData['pickup_region'];
+        $service->pickup_state = $validatedData['pickup_state'];
+        $service->pickup_country = $validatedData['pickup_country'];
+        $service->dropoff_street_address = $validatedData['dropoff_street_address'];
+        $service->dropoff_landmark = $validatedData['dropoff_landmark'];
+        $service->dropoff_city = $validatedData['dropoff_city'];
+        $service->dropoff_region = $validatedData['dropoff_region'];
+        $service->dropoff_state = $validatedData['dropoff_state'];
+        $service->dropoff_country = $validatedData['dropoff_country'];
+        $service->date = $validatedData['date'];
+        $service->time = $validatedData['time'];
+        $service->weight_desc = $validatedData['weight-desc'];
+
+        $service->save();
+        return redirect('/');
+    }
 }
-}
+

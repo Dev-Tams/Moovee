@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    use HasFactory;
     protected $fillable = [
-        'name', 'email', 'phone',
-         'service_type', 'pickup_location',
-          'dropoff_location', 'date', 'time', 
-          'weight_desc', 'accept_terms',
+        'name', 'email', 'phone','service_type', 'pickup_location', 'dropoff_location', 'date', 'time', 'weight_desc', 'accept_terms',
     ];
 }

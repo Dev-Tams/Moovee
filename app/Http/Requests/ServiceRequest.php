@@ -42,16 +42,14 @@ class ServiceRequest extends FormRequest
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'weight-desc' => 'nullable|string',
-           // 'accept_terms' => 'exclude|required|accepted',
+            'accept_terms' => 'exclude|required|accepted',
         ];
     }
-    protected function passedValidation()
-    {
-        // Exclude accept_terms field from the validated data
-        $this->merge([
-            'accept_terms' => $this->request->get('accept_terms', null),
-        ]);
-    }
+
 
 
 }
+
+
+ 
+

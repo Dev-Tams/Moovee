@@ -31,5 +31,5 @@ Route::get('test', [TestController::class, 'test']);
 
 //routes for Transportation services
 Route::get('/services', [ServicesController::class, 'index']);
+Route::post('/services/quote', [ServicesController::class, 'store'])->name('services.quote');
 Route::get('/services/book', [ServicesController::class, 'show']);
-Route::post('/quote', [ServicesController::class, 'store'])->name('quote');
