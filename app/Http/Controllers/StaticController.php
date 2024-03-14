@@ -24,6 +24,6 @@ class StaticController extends Controller
 
     public function Testimonials(){
         //return view('Static/testimonials');
-        dd('Welcome to amazing testimonies');
+       
     }
 }
