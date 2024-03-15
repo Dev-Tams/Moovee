@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -11,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('service');
     }
 
     /**
@@ -25,9 +27,10 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        //
+        Service::create($request->validated());
+        return redirect()->back()->with('success', 'You just ordered, check your mail');
     }
 
     /**

@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
-
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,11 @@ Route::get('/', [StaticController::class, 'index']);
 Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
 Route::get('/testify',  [StaticController::class, 'testimonials']);
+
+
+
+Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+Route::post('/service', [ServiceController::class, 'store'])->name('service.store');
 
 
 

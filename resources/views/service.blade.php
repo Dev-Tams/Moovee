@@ -143,10 +143,10 @@
 
 
                  <label for="weight">Weight or Number of Items:</label><br>
-                 <textarea name="weight-desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items" value="{{old('weight_desc')}}"></textarea>
+                 <textarea name="weight_desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items" value="{{old('weight_desc')}}"></textarea>
                  <!-- reCAPTCHA -->
                  <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div><br>
-                 <!-- <div>
+                <div>
                     <input type="checkbox" id="accept_terms" name="accept_terms">
                     @error('accept_terms')
                     <p>{{$message}}</p>
@@ -154,15 +154,25 @@
 
                     <label for="accept_terms">Accept Terms <span><a href="/#">T&C</a></span></label>
                 </div>
- -->
-
-
-
+ 
                  <input type="submit" value="Get Quote">
              </form>
          </section>
      </div>
 
+     @if(session()->has('success'))
+     <p>
+         {{ session()->get('success') }}
+     </p>
+     @endif
+
+     @if ($errors->any())
+     <ul>
+         @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+         @endforeach
+     </ul>
+     @endif
      <script type="text/javascript">
          $.ajaxSetup({
              headers: {
