@@ -11,7 +11,7 @@
     <div class="services-container">
         <h1>MoveEase Services</h1>
 
-        <div><a href="/services/book">Book a Service</a></div>
+        <div><a href="/service/book">Book a Service</a></div>
         <hr>
 
         <section id="residential-moving">

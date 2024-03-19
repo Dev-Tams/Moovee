@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Mail\OrderConfirmation;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
@@ -13,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('service');
+        return view('service/index');
     }
 
     /**
@@ -21,7 +23,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('service/create');
     }
 
     /**
@@ -30,7 +32,12 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         Service::create($request->validated());
-        return redirect()->back()->with('success', 'You just ordered, check your mail');
+
+        //send email adress
+        Mail::to($request->validated()['email'])->send(new OrderConfirmation ($request->validated()));
+
+        
+        return redirect('/')->with('booked', 'Successfully booked, please check your email.');
     }
 
     /**

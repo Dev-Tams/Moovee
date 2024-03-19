@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <x-flash-booked />
     <header>
         <div class="logo">
             <img src="moveease-logo.png" alt="MoveEase Logo">
@@ -18,7 +19,7 @@
         <nav>
             <ul>
                 <li><a href="about">About</a></li>
-                <li><a href="services">Services</a></li>
+                <li><a href="service">Services</a></li>
                 <li><a href="testify">Testimonials</a></li>
                 <li><a href="contact">Contact</a></li>
             </ul>
@@ -30,13 +31,16 @@
 
     </div>
     <footer>
-    @yield('footer')
-    <section id="logistics-services">
-        <h2>Logistics Services</h2>
-        <p>For dedicated logistics services, please visit our dedicated logistics section.</p>
-        <a href="#logistics" class="btn">Explore Logistics Services</a>
-    </section>
-    <p>&copy; 2024 MoveEase Logistics. All rights reserved.</p>
+        @yield('footer')
+        <section id="logistics-services">
+            <h2>Logistics Services</h2>
+            <p>For dedicated logistics services, please visit our dedicated logistics section.</p>
+            <a href="#logistics" class="btn">Explore Logistics Services</a>
+        </section>
+        <p>&copy; 2024 MoveEase Logistics. All rights reserved.</p>
     </footer>
 
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
+</html>
