@@ -27,7 +27,7 @@ Route::get('/about',  [StaticController::class, 'about']);
 Route::get('/testify',  [StaticController::class, 'testimonials']);
 
 
-
+Route::get('quote', [ServiceController::class, 'quote']);
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 Route::get('service/book', [ServiceController::class, 'create'])->name('service.create');
 Route::post('service/book', [ServiceController::class, 'store'])->name('service.store');

@@ -22,6 +22,7 @@ class ServiceController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    
     public function create()
     {
         return view('service/create');
@@ -36,7 +37,7 @@ class ServiceController extends Controller
         $service = Service::create($request->validated());
 
         // Send email
-        Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
+     //   Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
 
         return redirect('/')->with('booked', 'Successfully booked, please check your email.');
     }
@@ -71,5 +72,9 @@ class ServiceController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function quote(){
+        return view('Service.quote');
     }
 }

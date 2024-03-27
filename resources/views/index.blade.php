@@ -6,7 +6,8 @@
     <div class="content">
         <h1>Welcome to Moovee</h1>
         <p>Providing efficient and reliable transportation solutions for individuals and businesses looking to relocate their belongings.</p>
-        <a href="/service" class="cta-btn">Request a Quote</a>
+        <a href="/quote" class="cta-btn">Request a Quote</a>
+        <a href="/service" class="cta-btn">Move Now</a>
     </div>
 </section>
 
