@@ -36,6 +36,8 @@ Route::view('/mail',  'serviceConfirmed');
 
 
 
+Route::view('register', 'users.signup');
+Route::view('login', 'users.login');
 
 
 //comment routes
