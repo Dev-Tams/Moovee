@@ -2,44 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\ServiceConfirmed;
-use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\ServiceRequest;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
-class ServiceController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('service/index');
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    
     public function create()
     {
-        return view('service/create');
+        //shows users form
+        return view('users.signup');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ServiceRequest $request)
+    public function store(UserRequest $request)
     {
-        
-        //$service = 
-        Service::create($request->validated());
 
-        // Send email
-     //   Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
+        // Create a new user using validated data
+        $user = User::create($request->validated());
 
-        return redirect('/')->with('booked', 'Successfully booked, please check your email.');
+        auth()->login($user);
+
+        return redirect('/')->with('Signed_in', 'Signed in');
+
     }
 
     /**
@@ -72,9 +71,5 @@ class ServiceController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function quote(){
-        return view('Service.quote');
     }
 }

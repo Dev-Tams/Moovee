@@ -30,7 +30,7 @@
 
                 <span class="em-style">Name</span>
             </div>
-            <form action="/register" method="POST" name="login-form">
+            <form action="{{route ('users.store') }}" method="POST">
                 @csrf
                 <div class="name">
                     <span class="p-w">
@@ -74,7 +74,7 @@
                 <div class="password_confirmation">
 
                     <span class="p-w">
-                        <input type="password" name="password_confirmation" id="password_confirmation" minlength="6" placeholder=" Create a Password" autocomplete="on">
+                        <input type="password" name="password_confirmation" id="password_confirmation" minlength="6" placeholder=" Confirm Password" autocomplete="on">
                         <span class="icon delete" title="clear Password"></span>
                         <span class="icon reveal" title="show password"></span>
                     </span>

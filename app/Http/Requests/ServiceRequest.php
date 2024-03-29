@@ -23,8 +23,8 @@ class ServiceRequest extends FormRequest
     {
         return [
             'name' => 'required|max:32',
-            'email' => 'required|string|min:6|max:255|email',
-            'phone' => 'required|string',
+            'email' => 'required|min:6|max:255|email',
+            'phone' => 'required|int',
             'service_type' => 'required|string|max:255',
             'pickup_street_address' => 'required|string',
             'pickup_landmark' => 'required|string',

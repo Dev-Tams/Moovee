@@ -4,6 +4,7 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/about',  [StaticController::class, 'about']);
 Route::get('/testify',  [StaticController::class, 'testimonials']);
 
 
+//Service routes
 Route::get('quote', [ServiceController::class, 'quote']);
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 Route::get('service/book', [ServiceController::class, 'create'])->name('service.create');
@@ -35,8 +37,11 @@ Route::post('service/book', [ServiceController::class, 'store'])->name('service.
 Route::view('/mail',  'serviceConfirmed');
 
 
+//Register a new user 
+Route::get('/register', [UserController::class, 'create']);
 
-Route::view('register', 'users.signup');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+
 Route::view('login', 'users.login');
 
 
