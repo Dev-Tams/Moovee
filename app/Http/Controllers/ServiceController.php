@@ -39,7 +39,7 @@ class ServiceController extends Controller
         // Send email
      //   Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
 
-        return redirect('/')->with('booked', 'Successfully booked, please check your email.');
+        return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
 
     /**

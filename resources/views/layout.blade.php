@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <x-flash-booked />
+    <x-flash-success />
     <header>
         <div class="logo">
             <img src="moveease-logo.png" alt="MoveEase Logo">
@@ -22,6 +22,9 @@
                 <li><a href="service">Services</a></li>
                 <li><a href="testify">Testimonials</a></li>
                 <li><a href="contact">Contact</a></li>
+
+               
+                <li><a href="/login">Login/Signup</a></li>
             </ul>
         </nav>
         @yield('nav')
@@ -40,7 +43,14 @@
         <p>&copy; 2024 MoveEase Logistics. All rights reserved.</p>
     </footer>
 
+    @if(session()->has('success'))
+    <p>
+        {{ session()->get('success') }}
+    </p>
+    @endif
+
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
+
 </html>

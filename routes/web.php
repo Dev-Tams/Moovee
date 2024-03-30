@@ -38,7 +38,7 @@ Route::view('/mail',  'serviceConfirmed');
 
 
 //Register a new user 
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->name('users.store');
 
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 

@@ -34,30 +34,36 @@
                 @csrf
                 <div class="name">
                     <span class="p-w">
-                        <input type="text" name="name" id="name" placeholder=" Enter your name" autocomplete="on">
+                        <input type="text" name="name" id="name" placeholder=" Enter your name" value="{{old}}" autocomplete="on">
                     </span>
-                    <div class="email-error">
-                        <!--  -->
+                    <div class="name-error">
+                        @error('name')
+                        <p>{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
 
 
                 <div class="email">
                     <span class="p-w">
-                        <input type="text" name="email" id="email" placeholder=" Email address" autocomplete="on">
+                        <input type="text" name="email" id="email" placeholder=" Email address" value="{{old}}" autocomplete="on">
                     </span>
                     <div class="email-error">
-                        <!--  -->
+                        @error('email')
+                        <p>{{$message}}</p>
+                        @enderror
                     </div>
 
                 </div>
 
                 <div class="phone">
                     <span class="p-w">
-                        <input type="tel" name="phone" id="phone" placeholder=" Enter phone number" autocomplete="on">
+                        <input type="tel" name="phone_number" id="phone_number" placeholder=" Enter phone number" value="{{old}}" autocomplete="on">
                     </span>
-                    <div class="email-error">
-                        <!--  -->
+                    <div class="phone-error">
+                        @error('phone_number')
+                        <p>{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -68,7 +74,11 @@
                         <span class="icon delete" title="clear Password"></span>
                         <span class="icon reveal" title="show password"></span>
                     </span>
-                    <div class="pass-error"></div>
+                    <div class="pass-error">
+                        @error('password')
+                        <p>{{$message}}</p>
+                        @enderror
+                    </div>
 
                 </div>
                 <div class="password_confirmation">
@@ -78,7 +88,11 @@
                         <span class="icon delete" title="clear Password"></span>
                         <span class="icon reveal" title="show password"></span>
                     </span>
-                    <div class="pass-error"></div>
+                    <div class="pass-error">
+                        @error('password_confirmation')
+                        <p>{{$message}}</p>
+                        @enderror
+                    </div>
 
                 </div>
 
@@ -126,6 +140,11 @@
         </section>
 
     </div>
+    @if(session()->has('success'))
+    <p>
+        {{ session()->get('success') }}
+    </p>
+    @endif
 </body>
 
 </html>

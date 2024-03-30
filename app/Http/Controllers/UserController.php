@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -28,18 +27,35 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */
-    public function store(UserRequest $request)
+  
+*/
+
+    public function store(Request $request)
     {
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'required|numeric|min:10',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
 
-        // Create a new user using validated data
-        $user = User::create($request->validated());
+        // Create a new user record
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'phone_number' =>$validatedData['phone_number'],
+            'password' => bcrypt($validatedData['password']),
+        ]);
 
+        // Optionally, you can log in the user after registration
         auth()->login($user);
 
-        return redirect('/')->with('Signed_in', 'Signed in');
-
+        // Redirect the user to the desired page (e.g., homepage) after successful registration
+        return redirect('/')->with('signed_up', 'User registered successfully.');
     }
+
+
 
     /**
      * Display the specified resource.

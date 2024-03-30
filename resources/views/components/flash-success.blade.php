@@ -1,5 +1,5 @@
-@if(session()->has('booked'))
+@if(session()->has('success'))
 <div x-data="{ show: true }" x-init="setTimeout(() => { show = false; }, 3000)" x-show="show">
-    <p>{{ session('booked') }}</p>
+    <p>{{ session('success') }}</p>
 </div>
 @endif
