@@ -52,7 +52,7 @@ class UserController extends Controller
         auth()->login($user);
 
         // Redirect the user to the desired page (e.g., homepage) after successful registration
-        return redirect('/')->with('signed_up', 'User registered successfully.');
+        return redirect('/')->with('signed_', 'User registered successfully.');
     }
 
 

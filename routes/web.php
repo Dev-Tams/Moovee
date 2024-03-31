@@ -2,9 +2,10 @@
 
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +38,17 @@ Route::post('service/book', [ServiceController::class, 'store'])->name('service.
 Route::view('/mail',  'serviceConfirmed');
 
 
-//Register a new user 
-Route::get('/register', [UserController::class, 'create'])->name('users.store');
+//Handles a new user registration 
+Route::get('/register', [UserController::class, 'create'])->name('register.store');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-Route::view('login', 'users.login');
+//Handles auth users 
+Route::get('/login', [LoginController::class, 'create']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+//Route::view('login', 'users.login');
 
 
 //comment routes

@@ -22,13 +22,16 @@
     <div class="container">
         <main class="style-container">
             <form action="" method="post" name="login-form">
+                @csrf
                 <div class="name-email">
                     <label for="email"> Email / Phone Number</label>
                     <span class="p-w">
                         <input type="text" name="email" id="email" placeholder="email or phone number" autocomplete="on">
                     </span>
                     <div class="email-error">
-                        <!--  -->
+                        @error('phone_number')
+                        <p>{{$message}}</p>
+                        @enderror
                     </div>
 
                 </div>
@@ -37,11 +40,15 @@
                     <label for="password"> Password</label>
 
                     <span class="p-w">
-                        <input type="password" name="pass" id="password" minlength="6" placeholder="Password" autocomplete="on">
+                        <input type="password" name="password" id="password" minlength="6" placeholder="Password" autocomplete="on">
                         <span class="icon delete" title="clear Password"></span>
                         <span class="icon reveal" title="show password"></span>
                     </span>
-                    <div class="pass-error"></div>
+                    <div class="pass-error">
+                        @error('phone_number')
+                        <p>{{$message}}</p>
+                        @enderror
+                    </div>
 
                 </div>
 

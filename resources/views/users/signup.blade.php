@@ -30,11 +30,11 @@
 
                 <span class="em-style">Name</span>
             </div>
-            <form action="{{route ('users.store') }}" method="POST">
+            <form action="{{route ('register.store') }}" method="POST">
                 @csrf
                 <div class="name">
                     <span class="p-w">
-                        <input type="text" name="name" id="name" placeholder=" Enter your name" value="{{old}}" autocomplete="on">
+                        <input type="text" name="name" id="name" placeholder=" Enter your name" value="{{old('name')}}" autocomplete="on">
                     </span>
                     <div class="name-error">
                         @error('name')
@@ -46,7 +46,7 @@
 
                 <div class="email">
                     <span class="p-w">
-                        <input type="text" name="email" id="email" placeholder=" Email address" value="{{old}}" autocomplete="on">
+                        <input type="text" name="email" id="email" placeholder=" Email address" value="{{old('email')}}" autocomplete="on">
                     </span>
                     <div class="email-error">
                         @error('email')
@@ -58,7 +58,7 @@
 
                 <div class="phone">
                     <span class="p-w">
-                        <input type="tel" name="phone_number" id="phone_number" placeholder=" Enter phone number" value="{{old}}" autocomplete="on">
+                        <input type="tel" name="phone_number" id="phone_number" placeholder=" Enter phone number" value="{{old('phone_number')}}" autocomplete="on">
                     </span>
                     <div class="phone-error">
                         @error('phone_number')

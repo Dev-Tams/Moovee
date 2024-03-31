@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moove</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('/dropdown.css') }}"> -->
 
 </head>
 
@@ -23,8 +24,27 @@
                 <li><a href="testify">Testimonials</a></li>
                 <li><a href="contact">Contact</a></li>
 
-               
-                <li><a href="/login">Login/Signup</a></li>
+                @guest <!-- Display this for guests (not logged in) -->
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+
+                @else <!-- Display this for authenticated users -->
+                <li>
+                    <a href="#">Hello, {{ auth()->user()->name }}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="/orders">Orders</a></li>
+                        <li>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                @endguest
+            </ul>
+            </div>
             </ul>
         </nav>
         @yield('nav')
