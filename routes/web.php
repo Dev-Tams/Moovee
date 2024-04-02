@@ -25,24 +25,36 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 //using the --invoke method, simply dedicates a single action to a controller
 
 
-//static pages 
+
+//|--------------------------------------------------------------------------
+//| Static Pages
+//|--------------------------------------------------------------------------
 Route::get('/', [StaticController::class, 'index']);
 Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
 Route::view('/terms', 'terms');
 
 
-//Service routes
+
+//|--------------------------------------------------------------------------
+//| Service routes
+//|--------------------------------------------------------------------------
 Route::get('quote', [ServiceController::class, 'quote']);
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 Route::get('service/book', [ServiceController::class, 'create'])->middleware('auth')->name('service.create');
 Route::post('service/book', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');
-
+//confirm booked service by mail
 Route::view('/mail',  'serviceConfirmed');
 
+//|--------------------------------------------------------------------------
+//| Order routes
+//|--------------------------------------------------------------------------
 
 
 
+//|--------------------------------------------------------------------------
+//| User registration
+//|--------------------------------------------------------------------------
 //Handles a new user registration 
 Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register.store');
 
@@ -64,24 +76,29 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
 //login user, if mail is verified
 Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.store');
 
 
 
 
+
+//|--------------------------------------------------------------------------
+//| AUthenticate existing users
+//|--------------------------------------------------------------------------
 //Handles auth users 
 Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
-//Route for drastic changes (Get)
+//|--------------------------------------------------------------------------
+//| Route for important changes (requires password)
+//|--------------------------------------------------------------------------
 Route::get('/confirm-password', function () {
     return view('users.confirm-password');
 })->middleware('auth')->name('password.confirm');
-//Checking passowrds (Post)
+// Checking passowrds (Post)
 // Route::post('/confirm-password', function (Request $request) {
 //     if (!Hash::check($request->password, $request->user()->password)) {
 //         return back()->withErrors([
@@ -93,4 +110,4 @@ Route::get('/confirm-password', function () {
 
 //     return redirect()->intended();
 // })->middleware(['auth', 'throttle:6,1']);
-//comment routes
+
