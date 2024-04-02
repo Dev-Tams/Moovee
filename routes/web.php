@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Service;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -48,9 +50,23 @@ Route::get('/login', [LoginController::class, 'create']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-//Route::view('login', 'users.login');
 
+//Route for drastic changes (Get)
+Route::get('/confirm-password', function () {
+    return view('users.confirm-password');
+})->middleware('auth')->name('password.confirm');
+//Checking passowrds (Post)
+// Route::post('/confirm-password', function (Request $request) {
+//     if (!Hash::check($request->password, $request->user()->password)) {
+//         return back()->withErrors([
+//             'password' => ['The provided password does not match our records.']
+//         ]);
+//     }
 
+//     $request->session()->passwordConfirmed();
+
+//     return redirect()->intended();
+// })->middleware(['auth', 'throttle:6,1']);
 //comment routes
 Route::get('/comment', [App\Http\Controllers\CommentController::class, 'index'])->name('comment.index');
 Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');

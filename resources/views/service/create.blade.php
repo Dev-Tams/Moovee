@@ -32,26 +32,9 @@
 
          <!-- Request Form Section -->
          <section id="request-form">
-             <h2>Request a Quote</h2>
+             <h2>Book Service</h2>
              <form action="{{route ('service.store') }}" method="post">
                  @csrf
-                 <label for="name">Name:</label><br>
-                 <input type="text" id="name" name="name" value="{{old('name')}}"><br>
-                 @error('name')
-                 <p>{{$message}}</p>
-                 @enderror
-
-                 <label for="email">Email:</label><br>
-                 <input type="email" id="email" name="email" value="{{old('email')}}"><br>
-                 @error('email')
-                 <p>{{$message}}</p>
-                 @enderror
-
-                 <label for="phone">Phone:</label><br>
-                 <input type="tel" id="phone" name="phone" value="{{old('phone')}}"><br>
-                 @error('phone')
-                 <p>{{$message}}</p>
-                 @enderror
 
                  <label for="service_type">Service Type:</label><br>
                  <select id="service-type" name="service_type">
@@ -62,7 +45,6 @@
                  <p>{{$message}}</p>
                  @enderror
                  <br>
-
 
                  <div class="pickup">
                      <label for="pickup-location">Pick-up Location:</label><br>
@@ -81,7 +63,6 @@
                      <p>{{$message}}</p>
                      @enderror
                      <br>
-                     <input type="text" id="pickup-location" name="pickup_Region" placeholder="Region (optional)" value="{{old('pickup_region')}}"><br>
                      <input type="text" id="pickup-location" name="pickup_state" placeholder="State" value="{{old('pickup_state')}}">
                      @error('pickup_state')
                      <p>{{$message}}</p>
@@ -113,7 +94,6 @@
                      <p>{{$message}}</p>
                      @enderror
                      <br>
-                     <input type="text" id="dropoff-location" name="dropoff_region" placeholder="Region (optional)" value="{{old('dropoff_region')}}"><br>
                      <input type="text" id="dropoff-location" name="dropoff_state" placeholder="State" value="{{old('dropoff_state')}}">
                      @error('dropoff_state')
                      <p>{{$message}}</p>
@@ -146,16 +126,16 @@
                  <textarea name="weight_desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items" value="{{old('weight_desc')}}"></textarea>
                  <!-- reCAPTCHA -->
                  <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div><br>
-                <div>
-                    <input type="checkbox" id="accept_terms" name="accept_terms">
-                    @error('accept_terms')
-                    <p>{{$message}}</p>
-                    @enderror
+                 <div>
+                     <input type="checkbox" id="accept_terms" name="accept_terms">
+                     @error('accept_terms')
+                     <p>{{$message}}</p>
+                     @enderror
 
-                    <label for="accept_terms">Accept Terms <span><a href="/#">T&C</a></span></label>
-                </div>
- 
-                 <input type="submit" value="Get Quote">
+                     <label for="accept_terms">Accept Terms <span><a href="/#">T&C</a></span></label>
+                 </div>
+
+                 <input type="submit" value="Book">
              </form>
          </section>
      </div>

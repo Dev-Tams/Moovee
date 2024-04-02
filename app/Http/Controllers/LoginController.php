@@ -19,12 +19,18 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request): RedirectResponse
     {
+
+        //parse credentials
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        //remeber me option
+        $remember = $request->has('remember');
+
+        //authenticated
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/');

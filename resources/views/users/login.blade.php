@@ -59,6 +59,10 @@
                     <input type="submit" value="Login" id="login">
                     <span id="rotate"></span>
                 </div>
+                <div>
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label for="remember">Remember Me</label>
+                </div>
             </form>
 
             <aside>
