@@ -60,9 +60,9 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
+            'client' => [
+                'timeout' => 5,
+            ],
         ],
 
         'sendmail' => [
@@ -111,7 +111,6 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'tammy@moove.com'),
         'name' => env('MAIL_FROM_NAME', 'Moove Services'),
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
