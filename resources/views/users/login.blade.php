@@ -14,7 +14,7 @@
     </style>
     <section class="header">
         <header>
-            <h1> Sign In</h1>
+            <h1> Log In</h1>
         </header>
 
 
@@ -24,12 +24,12 @@
             <form action="" method="post" name="login-form">
                 @csrf
                 <div class="name-email">
-                    <label for="email"> Email / Phone Number</label>
+                    <label for="email"> Email</label>
                     <span class="p-w">
-                        <input type="text" name="email" id="email" placeholder="email or phone number" autocomplete="on">
+                        <input type="text" name="email" id="email" placeholder="provide your email address" autocomplete="on">
                     </span>
                     <div class="email-error">
-                        @error('phone_number')
+                        @error('email')
                         <p>{{$message}}</p>
                         @enderror
                     </div>

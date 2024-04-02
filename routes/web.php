@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\ServiceController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,27 +29,52 @@ use App\Http\Controllers\ServiceController;
 Route::get('/', [StaticController::class, 'index']);
 Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
-Route::get('/testify',  [StaticController::class, 'testimonials']);
+Route::view('/terms', 'terms');
 
 
 //Service routes
 Route::get('quote', [ServiceController::class, 'quote']);
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
-Route::get('service/book', [ServiceController::class, 'create'])->name('service.create');
-Route::post('service/book', [ServiceController::class, 'store'])->name('service.store');
+Route::get('service/book', [ServiceController::class, 'create'])->middleware('auth')->name('service.create');
+Route::post('service/book', [ServiceController::class, 'store'])->middleware('auth')->name('service.store');
 
 Route::view('/mail',  'serviceConfirmed');
 
 
+
+
 //Handles a new user registration 
-Route::get('/register', [UserController::class, 'create'])->name('register.store');
-Route::post('/register', [UserController::class, 'store'])->name('register.store');
+Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register.store');
+
+// get request to verify email
+Route::get('/email/verify', function () {
+    return view('users.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+//clickable verifiable link
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+//re-request email verify link, either broken or deleted
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+//login user, if mail is verified
+Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.store');
+
+
 
 
 //Handles auth users 
-Route::get('/login', [LoginController::class, 'create']);
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/login', [LoginController::class, 'create'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
 //Route for drastic changes (Get)
@@ -68,5 +94,3 @@ Route::get('/confirm-password', function () {
 //     return redirect()->intended();
 // })->middleware(['auth', 'throttle:6,1']);
 //comment routes
-Route::get('/comment', [App\Http\Controllers\CommentController::class, 'index'])->name('comment.index');
-Route::post('/comment', [App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');

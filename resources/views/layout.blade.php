@@ -21,7 +21,6 @@
             <ul>
                 <li><a href="about">About</a></li>
                 <li><a href="service">Services</a></li>
-                <li><a href="testify">Testimonials</a></li>
                 <li><a href="contact">Contact</a></li>
 
                 @guest <!-- Display this for guests (not logged in) -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class UserController extends Controller
 {
@@ -47,12 +48,13 @@ class UserController extends Controller
             'phone_number' =>$validatedData['phone_number'],
             'password' => bcrypt($validatedData['password']),
         ]);
+        event(new Registered($user));
 
         // Optionally, you can log in the user after registration
         auth()->login($user);
 
         // Redirect the user to the desired page (e.g., homepage) after successful registration
-        return redirect('/')->with('signed_', 'User registered successfully.');
+        return redirect('/')->with('success', 'User registered successfully.');
     }
 
 
