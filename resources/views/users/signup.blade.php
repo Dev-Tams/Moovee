@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/FE/css/login.css">
-    <link rel="stylesheet" href="css/login.css">
 
-    <link rel="stylesheet" href="css/sigin-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/signin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
     <title>Moove Signup</title>
 </head>
 
@@ -68,7 +68,6 @@
                 </div>
 
                 <div class="password">
-
                     <span class="p-w">
                         <input type="password" name="password" id="password" minlength="6" placeholder=" Create a Password" autocomplete="on">
                         <span class="icon delete" title="clear Password"></span>
@@ -82,7 +81,6 @@
 
                 </div>
                 <div class="password_confirmation">
-
                     <span class="p-w">
                         <input type="password" name="password_confirmation" id="password_confirmation" minlength="6" placeholder=" Confirm Password" autocomplete="on">
                         <span class="icon delete" title="clear Password"></span>
