@@ -166,7 +166,7 @@ input[type=submit]:hover {
 
 
 .reveal {
-    background-image: url('icons/visibility_off.svg');
+    background-image: url('icons/visibility.svg');
     margin-right: 15px;
 }
 
