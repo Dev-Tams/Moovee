@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/signin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js', 'vendor/courier/build'])
     <title>Moove Signup</title>
 </head>
 
@@ -82,7 +82,7 @@
                 </div>
                 <div class="password_confirmation">
                     <span class="p-w">
-                        <input type="password" name="password_confirmation" id="password_confirmation" minlength="6" placeholder=" Confirm Password" autocomplete="on">
+                        <input type="password" name="password_confirmation" id="password" minlength="6" placeholder=" Confirm Password" autocomplete="on">
                         <span class="icon delete" title="clear Password"></span>
                         <span class="icon reveal" title="show password"></span>
                     </span>
