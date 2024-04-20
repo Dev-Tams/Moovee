@@ -36,7 +36,7 @@ class ServiceController extends Controller
         $service = Service::create($request->validated());
 
         // Send email
-       Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
+       //Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
 
         return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
