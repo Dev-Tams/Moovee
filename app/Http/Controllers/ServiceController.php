@@ -38,15 +38,29 @@ class ServiceController extends Controller
         // Send email
        //Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
 
+       $service['user_id'] = auth()->id();
+
         return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    /**
+     * Display the specified resource.
+     */
+    public function show()
     {
-        //
+        // Fetch the service based on the provided ID
+        $service = Service::findOrFail($id);
+
+        // Check if the authenticated user owns the service
+        if ($service->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
+
+        // Pass the service data to the view
+        return view('service.show', ['service' => $service]);
     }
 
     /**
