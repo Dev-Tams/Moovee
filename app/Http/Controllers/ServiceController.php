@@ -35,11 +35,12 @@ class ServiceController extends Controller
         
         $service = Service::create($request->validated());
 
-        // Send email
+       
+        $service->user_id = auth()->id();
+        $service->save();
+
+         // Send email
        //Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
-
-       $service['user_id'] = auth()->id();
-
         return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
 
@@ -49,8 +50,13 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($id = null)
     {
+        if ($id === null) {
+            // Handle case where no ID is provided
+            return view('service.show')->with('service', null);
+        }
+
         // Fetch the service based on the provided ID
         $service = Service::findOrFail($id);
 
@@ -62,6 +68,7 @@ class ServiceController extends Controller
         // Pass the service data to the view
         return view('service.show', ['service' => $service]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

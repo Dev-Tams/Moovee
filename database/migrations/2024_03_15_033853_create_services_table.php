@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->string('service_type');
             $table->string('pickup_street_address');
             $table->string('pickup_landmark');
