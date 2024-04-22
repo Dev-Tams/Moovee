@@ -10,9 +10,17 @@
 <body>
     <h1>Order Details</h1>
     <div>
+        @if(isset($service))
         <p><strong>Service Name:</strong> {{ $service->name }}</p>
         <p><strong>Description:</strong> {{ $service->description }}</p>
-        <!-- Add more details as needed -->
+        <div>
+            <p>Service ID: {{ $service->id }}</p>
+            <!-- Other service details -->
+        </div>
+        <a href="{{ route('services.show', ['id' => $service->id]) }}">View orders</a>
+        @else
+        <p>Sorry, You have no orders</p>
+        @endif
     </div>
 </body>
 

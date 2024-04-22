@@ -32,7 +32,11 @@
                     <a href="#">Hello, {{ auth()->user()->name }}</a>
                     <ul class="dropdown-menu">
                         <li><a href="#">My Profile</a></li>
-                        <li><a href="/orders">Orders</a></li>
+                        @if(isset($service))
+                        <a href="{{ route('services.show', ['id' => $service->id]) }}">View orders</a>
+                        @else
+                        <a href="/orders"> orders</a>
+                        @endif
                         <li>
                             <form action="/logout" method="POST">
                                 @csrf
