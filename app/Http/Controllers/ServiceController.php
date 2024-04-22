@@ -34,9 +34,8 @@ class ServiceController extends Controller
     {
         
         $service = Service::create($request->validated());
-
-       
-        $service->user_id = auth()->id();
+        $user = auth()->user();
+        $service->user_id = $user->id;
         $service->save();
 
          // Send email
