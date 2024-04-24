@@ -49,8 +49,13 @@ Route::view('/mail',  'serviceConfirmed');
 //|--------------------------------------------------------------------------
 //| Order routes
 //|--------------------------------------------------------------------------
-//User without orders
-Route::view('/orders', 'service/show', ['id' => auth()->id()])->middleware('auth');
+//User without ordersRoute::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+Route::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+
+
+
+//testing the tailwind css class
+Route::view('/app', 'app');
 
 
 
