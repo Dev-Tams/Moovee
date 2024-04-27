@@ -6,6 +6,10 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+   corePlugins: {
+    // Disable the base styles to prevent the reset from being applied
+    preflight: false,
+  },
   theme: {
     extend: {},
   },

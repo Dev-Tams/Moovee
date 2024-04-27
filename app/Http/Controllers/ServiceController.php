@@ -32,10 +32,9 @@ class ServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
-        
+        $userId = auth()->id();
         $service = Service::create($request->validated());
-        $users = auth()->user();
-        $service->user_id = $users->id;
+        $service->user_id = $userId;
         $service->save();
 
          // Send email
