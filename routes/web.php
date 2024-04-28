@@ -34,6 +34,8 @@ Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
 Route::view('/terms', 'terms');
 
+Route::post('/contact', [StaticController::class, 'store'])->name('contact.store');
+
 
 
 //|--------------------------------------------------------------------------
