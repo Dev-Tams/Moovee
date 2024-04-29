@@ -33,6 +33,7 @@ Route::get('/', [StaticController::class, 'index']);
 Route::get('/contact',  [StaticController::class, 'contact']);
 Route::get('/about',  [StaticController::class, 'about']);
 Route::view('/terms', 'terms');
+Route::view('footer', 'footer');
 
 Route::post('/contact', [StaticController::class, 'store'])->name('contact.store');
 
