@@ -1,3 +1,4 @@
+@extends('footer')
 @extends('layout')
 @section('nav')
 @section('content')
@@ -32,7 +33,7 @@
     </div>
 </section>
 
-<a href="#" class="logistics-link">Discover More Logistics Services</a>
+
 
 <script src="script.js"></script>
 @endsection

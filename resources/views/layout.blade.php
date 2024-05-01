@@ -56,16 +56,8 @@
         @yield('content')
 
     </div>
-    <footer>
-        @yield('footer')
-        <section id="logistics-services">
-            <h2>Logistics Services</h2>
-            <p>For dedicated logistics services, please visit our dedicated logistics section.</p>
-            <a href="#logistics" class="btn">Explore Logistics Services</a>
-        </section>
-        <p>&copy; 2024 MoveEase Logistics. All rights reserved.</p>
-    </footer>
-
+    
+    
     @if(session()->has('success'))
     <p>
         {{ session()->get('success') }}
