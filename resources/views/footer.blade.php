@@ -1,13 +1,13 @@
-@vite('resources/css/app.css')
+<!-- @vite('resources/css/app.css')
 
-<footer class="Footer_footer bg-[#19191b] bg-no-repeat flex">
-    <div class="container  py-8 lg:py-24 mx-auto md:flex-nowrap">
+<footer class="Footer_footer bg-[#19191b] bg-no-repeat  flex flex-row">
+    <div class="container  py-8 lg:py-24 flex flex-wrap justify-around mx-auto md:flex-nowrap">
         <div class="w-full lg:w-auto ">
             <div class="flex-1">
                 <h4 class="font-bold text-lg mb-3 text-white ">© 2024 Moove Services</h4>
                 <nav class="flex flex-col mb-6 "></nav>
             </div>
-            <div class="w-full lg:w-auto flex-1 ">
+            <div class="w-full lg:w-auto flex-2 ">
                 <h4 class="font-bold text-lg mb-3 text-white">Company</h4>
                 <nav class="flex flex-col mb-6 text-white ">
                     <a class="Footer_footer-link__1x467  text-white no-underline hover:text-gray-400" target="_self" href="/services-portfolio">Service Portfolio</a>
@@ -17,7 +17,7 @@
                     <a class="Footer_footer-link__1x467 text-white no-underline hover:text-gray-400" target="_self" href="/privacy-policy">Privacy Policy</a>
                 </nav>
             </div>
-            <div class="w-full lg:w-auto flex-1 ">
+            <div class="w-full lg:w-auto flex-3 ">
                 <h4 class="font-bold text-lg mb-3 text-white">Other Services</h4>
                 <nav class="flex flex-col mb-6 ">
                     <a class="Footer_footer-link__1x467 text-white no-underline hover:text-gray-400" target="_self" href="/get-a-quote">Get a Quote</a>
@@ -28,7 +28,7 @@
                 </nav>
             </div>
 
-            <div class="hover:text-gray-400 flex-1">
+            <div class="hover:text-gray-400 flex-4">
                 <h4 class="font-bold text-lg mb-3 text-white">Connect with us</h4>
                 <nav class="flex">
                     <a target="_blank" rel="noreferrer" href="https://facebook.com/tammyalemu" title="facebook" class="text-white mr-6 text-lg">
@@ -53,6 +53,42 @@
                     </a>
                 </nav>
             </div>
+        </div>
+    </div>
+</footer> -->
+<footer class="bg-gray-800 text-white">
+    <div class="container mx-auto py-8 flex justify-around">
+        <div>
+            <h4 class="font-bold text-lg mb-4">Company</h4>
+            <ul>
+                <li><a href="#" class="hover:text-gray-400">About Us</a></li>
+                <li><a href="#" class="hover:text-gray-400">Services</a></li>
+                <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4">Products</h4>
+            <ul>
+                <li><a href="#" class="hover:text-gray-400">Product 1</a></li>
+                <li><a href="#" class="hover:text-gray-400">Product 2</a></li>
+                <li><a href="#" class="hover:text-gray-400">Product 3</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4">Resources</h4>
+            <ul>
+                <li><a href="#" class="hover:text-gray-400">Blog</a></li>
+                <li><a href="#" class="hover:text-gray-400">FAQs</a></li>
+                <li><a href="#" class="hover:text-gray-400">Support</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+            <ul>
+                <li><a href="#" class="hover:text-gray-400">Facebook</a></li>
+                <li><a href="#" class="hover:text-gray-400">Twitter</a></li>
+                <li><a href="#" class="hover:text-gray-400">Instagram</a></li>
+            </ul>
         </div>
     </div>
 </footer>
