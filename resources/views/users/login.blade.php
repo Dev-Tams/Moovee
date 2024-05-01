@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @extends('footer')
     <style>
     </style>
     <section class="header">
@@ -100,6 +101,7 @@
         </section>
 
     </div>
+    @section('footer')
     <script src="/public/resources/js/sigin.js"></script>
 </body>
 

@@ -14,6 +14,7 @@
  </head>
 
  <body>
+     @extends('footer')
      <div class="services-container">
          <h1>MoveEase Services</h1>
          <hr>
@@ -160,6 +161,7 @@
              }
          });
      </script>
+     @section('footer')
  </body>
 
  </html>

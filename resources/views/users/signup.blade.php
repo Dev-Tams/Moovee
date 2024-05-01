@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @extends('footer')
     <style>
     </style>
     <section class="header">
@@ -137,6 +138,9 @@
         </main>
         </section>
 
+    </div>
+    <div>
+        @section('footer')
     </div>
     @if(session()->has('success'))
     <p>

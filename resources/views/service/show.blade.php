@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    @extends('footer')
     <h1>Order Details</h1>
     <div>
         @if(isset($service))
@@ -22,6 +23,7 @@
         <p>Sorry, You have no orders</p>
         @endif
     </div>
+    @section('footer')
 </body>
 
 </html>

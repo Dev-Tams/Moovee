@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    @extends('footer')
     <div class="services-container">
         <h1>MoveEase Services</h1>
 
@@ -53,6 +54,7 @@
             </ul>
         </section>
     </div>
+    @section('footer')
 </body>
 
 </html>

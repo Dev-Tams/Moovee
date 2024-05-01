@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    @extends('footer')
     <section>
         <main>
             <a href="/"> Go back</a>
@@ -56,6 +57,7 @@
             </div>
         </main>
     </section>
+    @section('footer')
 </body>
 
 </html>
