@@ -2,9 +2,13 @@
 @extends('layout')
 @section('nav')
 @section('content')
-<section class="hero">
+
+
+<section class="hero bg-slate-500 " style="background-image: url('css//images/hero.jpeg');">
     <div class="overlay"></div>
     <div class="content">
+        <img src="{{ asset('css/images/hero.jpg') }}" alt="Hero Image" class="w-full h-auto mb-8">
+        <img src="/images/hero.jpeg" alt="gogo">
         <h1>Welcome to Moovee</h1>
         <p>Providing efficient and reliable transportation solutions for individuals and businesses looking to relocate their belongings.</p>
         <a href="/quote" class="cta-btn">Request a Quote</a>
@@ -36,8 +40,7 @@
 
 
 <script src="script.js"></script>
+
 @endsection
-
 @section('footer')
-
 @endsection
