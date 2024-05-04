@@ -7,7 +7,10 @@
     @vite('resources/css/app.css')
     <title>contact Moovee Logistics</title>
 </head>
+
 @extends('footer')
+@extends('header')
+@section('partials.nav')
 
 <body class="mt-4">
     <div class="md: container md:mx-auto flex items-center flex-col bg-gray-100">
