@@ -21,6 +21,27 @@ header .logo img {
     width: 100px;
     /* Adjust the width as needed */
 }
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Ensure the navigation bar is above other content */
+    transition: top 0.3s;
+    /* Add smooth transition when changing position */
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.navbar.sticky {
+    top: 0;
+    /* Stick to the top of the viewport */
+}
 
 nav ul {
     list-style: none;

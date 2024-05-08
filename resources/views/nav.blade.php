@@ -1,16 +1,16 @@
     @vite('resources/css/app.css')
-    @yield('')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    @vite(['resources/js/app.js', 'vendor/courier/build'])
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 
 
-    <header class=" container bg-[#333] text-[#fff]">
-        <div class="flex justify-between items-center px-6 py-4">
+    <header class=" container bg-[#333] text-[#fff]" id="navbar">
+        <div class="flex justify-between">
             <!-- Logo -->
             <div class="logo">
-                <!-- Your logo content here -->
+                <a href="/"><img src="" alt="logo"></a>
             </div>
             <!-- Navigation Links -->
-            <nav class="flex-grow">
+            <nav class="navbar flex-grow">
                 <ul class="flex justify-center space-x-4">
                     <li><a href="about" class="no-underline hover:bg-black">About</a></li>
                     <li><a href="service class" class="no-underline hover:bg-black">Services</a></li>

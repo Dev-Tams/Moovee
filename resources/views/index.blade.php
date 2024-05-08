@@ -1,18 +1,15 @@
 @extends('footer')
 @extends('layout')
-@section('nav')
 @section('content')
 
 
-<section class="hero bg-slate-500 " style="background-image: url('css//images/hero.jpeg');">
+<section  id="hero" class="hero bg-slate-500 bg-cover h-screen " style="background-image: url('css//images/16615.jpg');">
     <div class="overlay"></div>
     <div class="content">
-        <img src="{{ asset('css/images/hero.jpg') }}" alt="Hero Image" class="w-full h-auto mb-8">
-        <img src="/images/hero.jpeg" alt="gogo">
-        <h1>Welcome to Moovee</h1>
+        <h1>Make your Moovee</h1>
         <p>Providing efficient and reliable transportation solutions for individuals and businesses looking to relocate their belongings.</p>
-        <a href="/quote" class="cta-btn">Request a Quote</a>
-        <a href="/service" class="cta-btn">Book Now</a>
+        <a href="/quote" class="cta-btn bg-red-500 rounded-lg mr-1 hover:bg-gray-900">Request a Quote</a>
+        <a href="/service" class="cta-btn bg-red-500 rounded-lg mr-2 hover:bg-gray-900">Book Now</a>
     </div>
 </section>
 
@@ -20,7 +17,7 @@
 <section class="testimonials">
     <h2>What Our Customers Say</h2>
     <div class="testimonial">
-        <p>"MoveEase made my relocation stress-free and easy. Highly recommended!"</p>
+        <p>"Moove made my relocation stress-free and easy. Highly recommended!"</p>
         <span>- John Doe</span>
     </div>
 </section>
