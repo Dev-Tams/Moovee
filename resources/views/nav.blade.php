@@ -3,18 +3,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 
 
-    <header class=" container bg-[#333] text-[#fff]" id="navbar">
+    <header class=" container bg-[#333] text-[#fff]">
         <div class="flex justify-between">
             <!-- Logo -->
-            <div class="logo">
-                <a href="/"><img src="" alt="logo"></a>
+            <div class="logo ml-8 mt-2 pl-8">
+                <a href="/"><img src="{{asset('css/images/mlogo-nobg.png')}}" alt="logo"></a>
             </div>
             <!-- Navigation Links -->
-            <nav class="navbar flex-grow">
-                <ul class="flex justify-center space-x-4">
-                    <li><a href="about" class="no-underline hover:bg-black">About</a></li>
-                    <li><a href="service class" class="no-underline hover:bg-black">Services</a></li>
-                    <li><a href="contact" class="no-underline hover:bg-black">Contact</a></li>
+            <nav class="navbar flex-grow w-screen h-20 pt-2">
+                <ul class="flex justify-center space-x-4 text-lg">
+                    <li><a href="about" class="no-underline hover:bg-black p-2">About</a></li>
+                    <li><a href="service class" class="no-underline hover:bg-black p-2">Services</a></li>
+                    <li><a href="contact" class="no-underline hover:bg-black p-2">Contact</a></li>
                 </ul>
             </nav>
             <!-- Login/Register Links -->
@@ -30,7 +30,7 @@
                         <a href="/orders">Orders</a>
                         @endif
                         <li>
-                            <form action="/logout" method="POST">
+                            <form action="/logout" method="POST" class="text-lg no-underline text-red-400 mr-1 hover:text-gray-200 hover:underline transition ease-in duration-100">
                                 @csrf
                                 <button type="submit">Logout</button>
                             </form>
@@ -39,9 +39,9 @@
                 </div>
                 <!-- Display this for authenticated users -->
                 @else
-                <div class="flex">
-                    <a href="/login" class="no-underline text-red-400 mr-1 hover:text-gray-200 hover:underline transition ease-in duration-100">Login</a>
-                    <a href="/register" class="no-underline text-red-400 hover:text-gray-200 hover:underline transition ease-in duration-100">Register</a>
+                <div class="flex items-baseline">
+                    <a href="/login" class=" text-lg  no-underline text-red-400 mr-2 hover:text-gray-200 hover:underline transition ease-in duration-100">Login</a>
+                    <a href="/register" class="no-underline  text-red-400 ml-2 hover:text-gray-200 hover:underline transition ease-in duration-100">Register</a>
                 </div>
                 @endauth
             </div>

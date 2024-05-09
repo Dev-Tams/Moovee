@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section  id="hero" class="hero bg-slate-500 bg-cover h-screen " style="background-image: url('css//images/16615.jpg');">
+<section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');">
     <div class="overlay"></div>
     <div class="content">
         <h1>Make your Moovee</h1>
