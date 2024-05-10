@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');">
+<section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');" loading="lazy">
     <div class="overlay"></div>
     <div class="content">
         <h1>Make your Moovee</h1>
@@ -13,27 +13,48 @@
     </div>
 </section>
 
+<main class="bg-[#fff]">
+    <section class="services text-base">
+        <h2 class="text-4xl">Our Services</h2>
+        <div class="service flex justify-evenly">
+            <div class="card-img">
+                <img src="{{asset('css/images/1920.jpg')}}" alt="Business owner ready to ship her customers' orders. Close up of female hands putting tape on a big package with products" loading="lazy">
+            </div>
+            <div class="py-16">
+                <h3>Residential Moving</h3>
+                <p class="text-2xl">From packing to unpacking, we handle it all.</p>
 
-<section class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="testimonial">
-        <p>"Moove made my relocation stress-free and easy. Highly recommended!"</p>
-        <span>- John Doe</span>
-    </div>
-</section>
+            </div>
 
-<section class="services">
-    <h2>Our Services</h2>
-    <div class="service">
-        <h3>Residential Moving</h3>
-        <p>From packing to unpacking, we handle it all.</p>
-    </div>
-    <div class="service">
-        <h3>Commercial Moving</h3>
-        <p>Efficient solutions for businesses looking to relocate.</p>
-    </div>
-</section>
+        </div>
+        <div class="business flex justify-evenly items-center flex-row-reverse ">
+            <div class="card-img">
+                <img src="{{asset('css/images/1268.jpg')}}" alt="Young worker loading cardboard boxes in a
+                 delivery van and communicating with his colleague" loading="lazy">
+            </div>
+            <div class="py-16">
+                <h3>Commercial Moving</h3>
+                <p class="text-2xl">Efficient solutions for businesses looking to relocate.</p>
+                <p class="text-2xl">We take the
+                    burden of logistics off you.
+                </p>
+            </div>
 
+        </div>
+
+    </section>
+
+
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"Moovee made my relocation stress-free and easy. Highly recommended!"</p>
+            <span>- John Doe</span>
+        </div>
+    </section>
+
+
+</main>
 
 
 <script src="script.js"></script>

@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 
 
-    <header class=" container bg-[#333] text-[#fff]">
+    <header class=" containertext-[#fff] mt-2">
         <div class="flex justify-between">
             <!-- Logo -->
             <div class="logo ml-8 mt-2 pl-8">
@@ -12,9 +12,9 @@
             <!-- Navigation Links -->
             <nav class="navbar flex-grow w-screen h-20 pt-2">
                 <ul class="flex justify-center space-x-4 text-lg">
-                    <li><a href="about" class="no-underline hover:bg-black p-2">About</a></li>
-                    <li><a href="service class" class="no-underline hover:bg-black p-2">Services</a></li>
-                    <li><a href="contact" class="no-underline hover:bg-black p-2">Contact</a></li>
+                    <li><a href="about" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">About</a></li>
+                    <li><a href="service class" class="no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
+                    <li><a href="contact" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">Contact</a></li>
                 </ul>
             </nav>
             <!-- Login/Register Links -->
@@ -41,7 +41,7 @@
                 @else
                 <div class="flex items-baseline">
                     <a href="/login" class=" text-lg  no-underline text-red-400 mr-2 hover:text-gray-200 hover:underline transition ease-in duration-100">Login</a>
-                    <a href="/register" class="no-underline  text-red-400 ml-2 hover:text-gray-200 hover:underline transition ease-in duration-100">Register</a>
+                    <a href="/register" class="no-underline  text-red-400 mx-3 hover:text-gray-200 hover:underline transition ease-in duration-100">Register</a>
                 </div>
                 @endauth
             </div>
