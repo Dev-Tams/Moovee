@@ -1,4 +1,6 @@
+
 FROM richarvey/nginx-php-fpm:2.0.0
+
 
 
 COPY . .
@@ -12,7 +14,7 @@ ENV REAL_IP_HEADER 1
 
 # Laravel config
 ENV APP_ENV production
-ENV APP_DEBUG false
+ENV APP_DEBUG true
 ENV LOG_CHANNEL stderr
 
 # Allow composer to run as root
