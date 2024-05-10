@@ -66,7 +66,7 @@ Route::view('/app', 'app');
 //| User registration
 //|--------------------------------------------------------------------------
 //Handles a new user registration 
-Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register.store');
+Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register.storee');
 
 // get request to verify email
 Route::get('/email/verify', function () {
@@ -87,7 +87,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 //login user, if mail is verified
-Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.store');
+Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.storee');
 
 
 

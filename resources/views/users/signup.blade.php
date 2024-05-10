@@ -31,7 +31,7 @@
 
                 <span class="em-style">Name</span>
             </div>
-            <form action="{{route ('register.store') }}" method="POST">
+            <form action="{{route ('register.storee') }}" method="POST">
                 @csrf
                 <div class="name">
                     <span class="p-w">
