@@ -32,13 +32,21 @@ class ServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
+        // Retrieve the authenticated user ID
         $userId = auth()->id();
-        $service = Service::create($request->validated());
-        $service->user_id = $userId;
-        $service->save();
 
-         // Send email
-       //Mail::to($request->validated()['email'])->send(new ServiceConfirmed($service));
+       //the service/create method does not have a userid passed to it
+       
+        // Add the user ID to the validated request data
+        $data = $request->validated();
+        $data['user_id'] = $userId;
+
+        // Create the new service with user ID included
+        $service = Service::create($data);
+
+        // Send email
+        // Mail::to($data['email'])->send(new ServiceConfirmed($service));
+
         return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
 
