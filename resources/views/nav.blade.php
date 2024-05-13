@@ -13,7 +13,7 @@
             <nav class="navbar flex-grow w-screen h-20 pt-2">
                 <ul class="flex justify-center space-x-4 text-lg">
                     <li><a href="about" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">About</a></li>
-                    <li><a href="service class" class="no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
+                    <li><a href="service" class="no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
                     <li><a href="contact" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">Contact</a></li>
                 </ul>
             </nav>
