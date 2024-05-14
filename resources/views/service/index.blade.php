@@ -35,31 +35,31 @@
 
         <section>
             <div class="container">
-                <h1 class="text-2xl font-bold">How it Works</h1>
+                <h1 class="text-2xl font-bold text-center w-full">How it Works</h1>
                 <div class="grid grid-cols-6 gap-4">
-                    <div class="border border-black p-4">
+                    <div class="border-2 border-solid border-gray-400 p-4">
                         <h3>Get a quote</h3>
-                        <p>Tell us a few details about your Move and we'll give you an estimate</p>
+                        <p class="text-[#81a3b9]">Tell us a few details about your Move and we'll give you an estimate</p>
                     </div>
-                    <div class="border border-black p-4">
+                    <div class=" border-2 border-solid border-gray-400 p-4">
                         <h3>Book Your Move</h3>
-                        <p>You pick the date and the time that works best for you and we'll take care of the rest.</p>
+                        <p class="text-[#81a3b9]">You pick the date and the time that works best for you and we'll take care of the rest.</p>
                     </div>
-                    <div class="border border-black p-4">
+                    <div class="border-2 border-solid border-gray-400 p-4">
                         <h3>Professional Movers</h3>
-                        <p>Our team of Professional Movers will arrive on time and ready to work</p>
+                        <p class="text-[#81a3b9]">Our team of Professional Movers will arrive on time and ready to work</p>
                     </div>
-                    <div class="border border-black p-4">
+                    <div class="border-2 border-solid border-gray-400 p-4">
                         <h3>Delivery</h3>
-                        <p>We'll deliver your belongings to your new home or office on the scheduled date.</p>
+                        <p class="text-[#81a3b9]">We'll deliver your belongings to your new home or office on the scheduled date.</p>
                     </div>
-                    <div class="border border-black p-4">
+                    <div class="border-2 border-solid border-gray-400 p-4">
                         <h3>Pay</h3>
-                        <p>Pay for your Move securely and conveniently with any major credit card</p>
+                        <p class="text-[#81a3b9]">Pay for your Move securely and conveniently with any major credit card</p>
                     </div>
-                    <div class="border border-black p-4">
+                    <div class="border-2 border-solid border-gray-400 p-4">
                         <h3>Track your Move</h3>
-                        <p>Stay in the loop with real-time updates on your move status</p>
+                        <p class="text-[#81a3b9]">Stay in the loop with real-time updates on your move status</p>
                     </div>
                 </div>
             </div>
@@ -69,36 +69,36 @@
         <div>
             <section>
                 <div>
-                    <div class="container">
-                        <h1>Why Moovee</h1>
+                    <div class="">
+                        <h1>Why Moovee?</h1>
                         <div class="grid grid-cols-7 gap-4">
-                            <div class="border border-black p-4">
-                                <h3>Fast and convenient</h3>
-                                <p>Get a move in minutes and book your move at your convenience</p>
+                            <div class="border-2 border-solid border-gray-400 p-4">
+                                <h3 class="">Fast and convenient</h3>
+                                <p class="text-[#81a3b9]">Get a move in minutes and book your move at your convenience</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>Reliable Service</h3>
-                                <p>We take the hassle out of moving with reliable service you can count on</p>
+                                <p class="text-[#81a3b9]">We take the hassle out of moving with reliable service you can count on</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>Trusted by thousands</h3>
-                                <p>Join thousands of satisfied customers who've made the move with Moovee</p>
+                                <p class="text-[#81a3b9]">Join thousands of satisfied customers who've made the move with Moovee</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>Move of any size</h3>
-                                <p>No move is too big or small - we do it all, from single-item deliverance to full-service moves.</p>
+                                <p class="text-[#81a3b9]">No move is too big or small - we do it all, from single-item deliverance to full-service moves.</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>Transparent Pricing</h3>
-                                <p>Know exactly what you are paying for with no hidden fees or surprise charges</p>
+                                <p class="text-[#81a3b9]">Know exactly what you are paying for with no hidden fees or surprise charges</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>Fully insured</h3>
-                                <p>We got you covered with comprehensive insurance for added peace of mind.</p>
+                                <p class="text-[#81a3b9]">We got you covered with comprehensive insurance for added peace of mind.</p>
                             </div>
-                            <div class="border border-black p-4">
+                            <div class="border-2 border-solid border-gray-400 p-4">
                                 <h3>24/7 customer support</h3>
-                                <p>Have questions or need assistance? Our friendly support team is here to help anytime.</p>
+                                <p class="text-[#81a3b9]">Have questions or need assistance? Our friendly support team is here to help anytime.</p>
                             </div>
                         </div>
                     </div>
