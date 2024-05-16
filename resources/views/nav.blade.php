@@ -3,6 +3,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 
 
+
+
+
+
+
     <header class=" containertext-[#fff] mt-2">
         <div class="flex justify-between">
             <!-- Logo -->
@@ -12,11 +17,12 @@
             <!-- Navigation Links -->
             <nav class="navbar flex-grow w-screen h-20 pt-2">
                 <ul class="flex justify-center space-x-4 text-lg">
-                    <li><a href="about" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">About</a></li>
-                    <li><a href="service" class="no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
-                    <li><a href="contact" class="no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">Contact</a></li>
+                    <li><a href="about" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">About</a></li>
+                    <li><a href="service" class="navlink no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
+                    <li><a href="contact" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">Contact</a></li>
                 </ul>
             </nav>
+
             <!-- Login/Register Links -->
             <div>
                 @auth <!-- Display this for authenticated users -->
@@ -47,5 +53,8 @@
             </div>
         </div>
     </header>
+
+   
+
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
