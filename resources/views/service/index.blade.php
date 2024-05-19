@@ -12,8 +12,8 @@
     @include('nav2')
     @extends('footer')
     <div class="container bg-[#fff]">
-        <h1 class=" flex justify-center text-blue-950">Moovee Services</h1>
-
+        <!-- <h1 class=" flex justify-center text-blue-950">Moovee Services</h1>
+ -->
 
 
         <section id="residential-moving" class="grid grid-cols-2 gap-4 justify-end items-start ml-4 bg-contain  h-96 m-7 p-10 text-[#fff]" style="background-image: url('css/images/2255.jpg');" loading="lazy">

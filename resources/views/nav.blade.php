@@ -17,9 +17,9 @@
             <!-- Navigation Links -->
             <nav class="navbar flex-grow w-screen h-20 pt-2">
                 <ul class="flex justify-center space-x-4 text-lg">
-                    <li><a href="about" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300 active:bg-violet-700 focus:bg-orange-600">About</a></li>
-                    <li><a href="service" class="navlink no-underline hover:text-red-200 hover:underline transition ease-out duration-300 active:bg-violet-700 focus:bg-orange-600">Services</a></li>
-                    <li><a href="contact" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300 active:bg-violet-700 focus:bg-orang-600">Contact</a></li>
+                    <li><a href="about" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-300">About</a></li>
+                    <li><a href="service" class="navlink no-underline hover:text-red-200 hover:underline transition ease-out duration-300">Services</a></li>
+                    <li><a href="contact" class="navlink no-underline p-2 hover:text-red-200 hover:underline transition ease-out duration-30">Contact</a></li>
                 </ul>
             </nav>
 
