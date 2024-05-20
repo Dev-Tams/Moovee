@@ -49,7 +49,7 @@
                 @enderror
 
                 <div>
-                    <input type="submit" value="submit" class="bg-blue-400 text-base mt-4 ml-6 h-11 w-96 rounded-md px-4 shadow-sm text-white hover:text-white hover:bg-black font-bold">
+                    <input type="submit" value="submit" class="bg-blue-400 outline-none focus:outline-none border-none text-base mt-4 ml-6 h-11 w-96 rounded-md px-4 shadow-sm text-white hover:text-white hover:bg-black font-bold">
                 </div>
             </form>
         </section>

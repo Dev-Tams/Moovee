@@ -7,11 +7,10 @@
     <title>Request Quote</title>
 </head>
 
-<body>
+<body class="min-h-screen">
     @include('./nav2')
-    @extends('footer')
 
-    <section>
+    <section class="">
         <main class="container h-full mx-auto w-10/12">
             <div>
                 <a href="/"> Go back</a>
@@ -76,7 +75,7 @@
             </div>
         </main>
     </section>
-    @section('footer')
+   @include('footer')
 </body>
 
 </html>
