@@ -22,29 +22,34 @@
             <form action="{{route('contact.store')}}" method="POST" class="box-border ">
                 @csrf
                 <div>
-                    <label for="Name" class="block font-bold text-lg mb-0"> Your Name</label>
-                    <input type="text" name="name" placeholder="Input your name" value="{{old('name')}}" class="text-base mt-0 h-12 w-64 border border-black rounded-md px-4">
+                    <label for="Name" class="block font-bold text-lg mb-0 ml-4"> Your Name</label>
+                    <input type="text" name="name" placeholder="Input your name" value="{{old('name')}}" class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg shadow-sm 
+                                                            focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200 hover:shadow-none
+                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
                     @error('name')
                     <p>{{$message}}</p>
                     @enderror
                 </div>
 
                 <div class="mb-2">
-                    <label for="email" class="block font-bold text-lg mb-0 mt-4"> Your email address</label>
-                    <input type="email" name="email" placeholder="Provide a valid email address" value="{{old('email')}}" class=" text-base mt-0 h-12 w-64 rounded-md px-4">
+                    <label for="email" class="block font-bold text-lg mb-0 mt-4 ml-4"> Your email address</label>
+                    <input type="email" name="email" placeholder="Provide a valid email address" value="{{old('email')}}" class=" w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg shadow-sm 
+                                                            focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200 hover:shadow-none
+                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
                     @error('email')
                     <p>{{$message}}</p>
                     @enderror
                 </div>
 
-                <textarea name="message" id="" rows="5" placeholder="What's your message?" value="{{old('message')}}" class="mt-4 border-gray-300 p-3 w-full rounded-md
-                 text-base resize-y" style="width: 267px; height: 157px;"></textarea>
+                <textarea name="message" id="" rows="5" placeholder="What's your message?" value="{{old('message')}}" class=" h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg shadow-sm 
+                                                            focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200 hover:shadow-none
+                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 resize-y" style="width: 375px; height: 157px;"></textarea>
                 @error('message')
                 <p>{{$message}}</p>
                 @enderror
 
                 <div>
-                    <input type="submit" value="submit" class="text-base mt-4 ml-14 h-12 w-52 rounded-md px-4 shadow-sm text-black hover:text-white hover:bg-black font-bold">
+                    <input type="submit" value="submit" class="bg-blue-400 text-base mt-4 ml-6 h-11 w-96 rounded-md px-4 shadow-sm text-white hover:text-white hover:bg-black font-bold">
                 </div>
             </form>
         </section>
