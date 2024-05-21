@@ -19,10 +19,7 @@
                 </h2>
 
             </div>
-
-            <p class="text-wrap text-center font-light font-serif text-base text-gray-500">
-                This is just an estimated cost for your shipment. Actual price may vary after creating a shipment
-            </p>
+            <p class="text-wrap text-center font-light font-serif text-base text-gray-500"> It takes 2 mins</p>
 
 
             <div class=" flex justify-center align-middle">
@@ -70,12 +67,18 @@
                         </div>
 
                     </div>
-                    <input type="button" value="Proceed" class="p-2 w-96 h-12 text-base rounded-lg mt-7 bg-blue-400 text-white font-mono hover:bg-[#767676] cursor-progress">
+                    <input type="button" value="Proceed" class="p-2 w-96 h-12  border-none text-base rounded-lg mt-7 bg-blue-400 text-white font-mono hover:bg-[#767676] cursor-progress">
+
+                    <p class="text-wrap text-center font-light font-serif text-base text-gray-500">
+                        This is just an estimated cost for your shipment. Actual price may vary
+                    </p>
                 </form>
+
+
             </div>
         </main>
     </section>
-   @include('footer')
+    @include('footer')
 </body>
 
 </html>

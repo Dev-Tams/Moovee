@@ -1,8 +1,8 @@
     @vite('resources/css/app.css')
     @vite(['resources/js/app.js', 'vendor/courier/build'])
     <header class="">
-        <nav class="flex justify-between">
-            <div class="box-border m-3">
+        <nav class="flex justify-between h-16">
+            <div class="box-border m-2">
                 <a href="/"><img src="{{asset('css/images/mlogo-nobg.png')}}" alt="logo" style="width:100px; background: #000;"></a>
 
             </div>
