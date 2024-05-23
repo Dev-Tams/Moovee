@@ -8,34 +8,34 @@
             </div>
 
 
-            <ul class="no-underline flex">
-                <li class="list-none m-3 p-1 text-base font-semibold font-sans rounded-lg h-full text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/about">About</a></li>
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg h-full w-16 text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/service">Services</a></li>
-                <li class="list-none m-3 p-1 w-20 text-base font-sans font-semibold rounded-lg h-full text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/contact">Contact Us</a></li>
+            <ul class="no-underline flex m-1">
+                <li class="list-none m-3 p-1 text-base font-semibold font-sans rounded-lg  text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/about">About</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg  w-16 text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/service">Services</a></li>
+                <li class="list-none m-3 p-1 w-20 text-base font-sans font-semibold rounded-lg  text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/contact">Contact Us</a></li>
                 <!-- Display this for authenticated users -->
 
                 @auth
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="#">My Profile</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-20l text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="#">My Profile</a></li>
                 @if(isset($service))
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500"> <a class="a-link no-underline text-black hover:text-white" href="{{ route('services.show', ['id' => $service->id]) }}">View orders</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16  text-center hover:bg-blue-500"> <a class="a-link no-underline text-black hover:text-white" href="{{ route('services.show', ['id' => $service->id]) }}">View orders</a></li>
 
                 @else
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500"> <a class="a-link no-underline text-black hover:text-white" href="/orders">Orders</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16  text-center hover:bg-blue-500"> <a class="a-link no-underline text-black hover:text-white" href="/orders">Orders</a></li>
                 @endif
 
 
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500">
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16  text-center hover:bg-blue-500">
                     <form action="/logout" method="POST" class="">
                         @csrf
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="border-none outline-none text-base font-sans font-semibold bg-transparent hover:text-white">Logout</button>
                     </form>
                 </li>
 
 
                 <!-- Display this for authenticated users -->
                 @else
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/login">Login</a></li>
-                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 h-full text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/register">Register</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/login">Login</a></li>
+                <li class="list-none m-3 p-1 text-base font-sans font-semibold rounded-lg w-16 text-center hover:bg-blue-500"><a class="a-link no-underline text-black hover:text-white" href="/register">Register</a></li>
                 @endauth
             </ul>
         </nav>
