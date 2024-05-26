@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    @extends('footer')
+    @include('./nav2')
+    
+
+
     <h1>Order Details</h1>
     <div>
         @if(isset($service))
@@ -23,7 +26,7 @@
         <p>Sorry, You have no orders</p>
         @endif
     </div>
-    @section('footer')
+   @include('./footer')
 </body>
 
 </html>

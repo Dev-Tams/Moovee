@@ -9,7 +9,7 @@
 </head>
 
 @extends('footer')
-@include('nav2')
+@include('./nav2')
 
 <body class="mt-4">
     <div class="md: container md:mx-auto flex items-center flex-col bg-gray-100">
