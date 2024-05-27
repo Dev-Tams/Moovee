@@ -52,8 +52,9 @@ Route::view('/mail',  'serviceConfirmed');
 //|--------------------------------------------------------------------------
 //| Order routes
 //|--------------------------------------------------------------------------
-//User without ordersRoute::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+//User without orders
 Route::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+Route::get('/services{id}', [ServiceController::class, 'show'])->middleware('auth')->name('services.show');
 
 
 

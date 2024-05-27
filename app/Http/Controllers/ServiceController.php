@@ -56,24 +56,14 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id = null)
+    public function show()
     {
-        if ($id === null) {
-            // Handle case where no ID is provided
-            return view('service.show')->with('service', null);
-        }
+        $service = auth()->user()->service;
 
-        // Fetch the service based on the provided ID
-        $service = Service::findOrFail($id);
-
-        // Check if the authenticated user owns the service
-        if ($service->user_id !== auth()->id()) {
-            abort(403, 'Unauthorized');
-        }
-
-        // Pass the service data to the view
         return view('service.show', ['service' => $service]);
-    }
+     }
+
+       
 
 
     /**

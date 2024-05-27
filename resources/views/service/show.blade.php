@@ -9,24 +9,26 @@
 
 <body>
     @include('./nav2')
-    
+
 
 
     <h1>Order Details</h1>
     <div>
-        @if(isset($service))
-        <p><strong>Service Name:</strong> {{ $service->name }}</p>
-        <p><strong>Description:</strong> {{ $service->description }}</p>
-        <div>
-            <p>Service ID: {{ $service->id }}</p>
-            <!-- Other service details -->
-        </div>
-        <a href="{{ route('services.show', ['id' => $service->id]) }}">View orders</a>
-        @else
-        <p>Sorry, You have no orders</p>
-        @endif
+        @unless($services->empty())
+        @foreach($services as $service)
+        <li>
+            <p><strong>Service Name:</strong> {{ $service->name }}</p>
+            <p><strong>Description:</strong> {{ $service->description }}</p>
+        </li>
+        @endforeach
     </div>
-   @include('./footer')
+    @else
+    <div>
+         <p>Sorry, You have no orders</p>
+    </div>
+   @endunless
+    </div>
+    @include('./footer')
 </body>
 
 </html>
