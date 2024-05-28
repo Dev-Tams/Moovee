@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Mail\ServiceConfirmed;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceRequest;
+use App\Models\Services;
 
 class ServiceController extends Controller
 {
@@ -42,7 +43,7 @@ class ServiceController extends Controller
         $data['user_id'] = $userId;
 
         // Create the new service with user ID included
-        $service = Service::create($data);
+        $service = Services::create($data);
 
         // Send email
         // Mail::to($data['email'])->send(new ServiceConfirmed($service));
@@ -58,10 +59,13 @@ class ServiceController extends Controller
      */
     public function show()
     {
-        $service = auth()->user()->service;
 
-        return view('service.show', ['service' => $service]);
-     }
+
+        return view('service.show', ['services' => auth()->user()->services()->get()]);
+   
+
+    }
+     
 
        
 

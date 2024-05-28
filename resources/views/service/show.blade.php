@@ -10,25 +10,38 @@
 <body>
     @include('./nav2')
 
-
-
     <h1>Order Details</h1>
-    <div>
-        @unless($services->empty())
-        @foreach($services as $service)
-        <li>
-            <p><strong>Service Name:</strong> {{ $service->name }}</p>
-            <p><strong>Description:</strong> {{ $service->description }}</p>
-        </li>
-        @endforeach
-    </div>
-    @else
-    <div>
-         <p>Sorry, You have no orders</p>
-    </div>
-   @endunless
-    </div>
-    @include('./footer')
+    <table class="w-full table-auto rounded-sm">
+        <tbody>
+            @unless($services->isEmpty())
+            @foreach($services as $service)
+            <tr class="border-gray-300">
+                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <a href="/services/{{$service->id}}"> {{$service->service_type}} </a>
+                </td>
+                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <a href="/services/{{$service->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i class="fa-solid fa-pen-to-square"></i>
+                        Edit</a>
+                </td>
+                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <form method="POST" action="/serivces/{{$service->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+            @else
+            <tr class="border-gray-300">
+                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <p class="text-center">No Orders Found</p>
+                </td>
+            </tr>
+            @endunless
+
+        </tbody>
+    </table>
 </body>
 
 </html>

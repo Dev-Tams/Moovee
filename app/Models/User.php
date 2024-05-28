@@ -50,6 +50,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function services(): HasMany
     {
-        return $this->haMany(service::class, 'user_id');
+        return $this->hasMany(services::class, 'user_id');
     }
 }
