@@ -57,11 +57,18 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($id =! null)
     {
-
-
-        return view('service.show', ['services' => auth()->user()->services()->get()]);
+        //checks if the user has an order
+        if($id == null){
+            return view('service.create');
+        }
+        //proceeds to fetch the user order with id
+        else{
+            $services = auth()->user()->services()->get();
+            return view('service.show', ['services' => $services]);
+        };
+       
    
 
     }

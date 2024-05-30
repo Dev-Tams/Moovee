@@ -18,6 +18,10 @@
             <tr class="border-gray-300">
                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                     <a href="/services/{{$service->id}}"> {{$service->service_type}} </a>
+                    <p>{{$service->service_type}}</p>
+                    <p>{{$service->pickup_street_address}}</p>
+                    <p>{{$service->date}}</p>
+                    {{$service->time}}
                 </td>
                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                     <a href="/services/{{$service->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i class="fa-solid fa-pen-to-square"></i>
