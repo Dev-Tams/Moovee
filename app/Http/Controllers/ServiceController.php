@@ -72,6 +72,15 @@ class ServiceController extends Controller
    
 
     }
+
+    public function manage($id){
+
+        $services = Services::findOrFail($id); 
+    
+        return view('service.manage', [
+            'services' => $services
+        ]);
+    }
      
 
        
