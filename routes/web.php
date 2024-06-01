@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\ServiceController;
+use App\Mail\ServiceConfirmed;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -49,12 +50,14 @@ Route::post('service/book', [ServiceController::class, 'store'])->middleware('au
 //confirm booked service by mail
 Route::view('/mail',  'serviceConfirmed');
 
+
 //|--------------------------------------------------------------------------
 //| Order routes
 //|--------------------------------------------------------------------------
-//User without orders
-//Route::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+
+//Show, edit and delete orders
 Route::get('/orders', [ServiceController::class, 'show'])->middleware('auth');
+Route::get('services/{id}', [ServiceController::class, 'manage'])->middleware('auth');
 
 
 
