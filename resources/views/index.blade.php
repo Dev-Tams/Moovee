@@ -2,6 +2,11 @@
 @extends('layout')
 @section('content')
 
+@if (session('about'))
+    <div class="alert alert-success">
+        {{ session('about') }}
+    </div>
+@endif
 
 <section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');" loading="lazy">
     <div class="overlay"></div>

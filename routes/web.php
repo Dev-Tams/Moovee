@@ -91,7 +91,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 //login user, if mail is verified
-Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.storee');
+Route::post('/register', [UserController::class, 'store'])->middleware('guest')->name('register.stree');
 
 
 
