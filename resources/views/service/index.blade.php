@@ -30,7 +30,7 @@
                     Our commercial moving services are tailored to meet the demands of businesses of all sizes.</p>
             </div>
             <div class="mt-6">
-                <div><a href="service/book" class="no-underline text-base text-center hover:bg-black rounded-xl
+                <div><a href="services/book" class="no-underline text-base text-center hover:bg-black rounded-xl
                  text-white bg-blue-500 block w-16 p-3"> Order </a></div>
             </div>
         </section>
