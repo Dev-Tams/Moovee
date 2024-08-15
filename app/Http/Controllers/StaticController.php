@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 
 class StaticController extends Controller
 {
-    // controller for static pages
-
+    
     public function Index()
     {
         return view('index');
@@ -34,8 +33,8 @@ class StaticController extends Controller
         return redirect('/')->with('success', 'submitted successfully, you will receive feedback soon!');
     }
     public function About(){
-        //return view('Static/About');
-        dd('welcome to about');
+       
+        return view('404');
     }
 
     public function Testimonials(){
