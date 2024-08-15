@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 
+/**
+ * @group User
+ * 
+ * APIs to book, manage, and view services
+ */
+
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new user.
      */
     public function create()
     {
@@ -27,67 +27,28 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-  
-*/
+     * creates a new user.
+     * @response 302 {
+     *   "message": "please verify email address."
+     * }
+     */
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        // Validate the incoming request
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required|numeric|min:10',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
 
-        // Create a new user record
+        $validatedData = $request->validate();
+
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'phone_number' =>$validatedData['phone_number'],
+            'phone_number' => $validatedData['phone_number'],
             'password' => bcrypt($validatedData['password']),
         ]);
         event(new Registered($user));
 
-        // Optionally, you can log in the user after registration
+
         auth()->login($user);
 
-        // Redirect the user to the desired page (e.g., homepage) after successful registration
         return redirect('/')->with('success', 'User registered successfully.');
-    }
-
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

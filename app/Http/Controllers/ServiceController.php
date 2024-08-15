@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
-use Illuminate\Http\Request;
+
+use App\Models\Services;
 use App\Mail\ServiceConfirmed;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceRequest;
-use App\Models\Services;
 
+/**
+ * @group Service Management
+ * 
+ * APIs to book, manage, and view services
+ */
 class ServiceController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * Show the service booking form.
+     *
+     * @response 200
      */
     public function index()
     {
@@ -20,97 +28,132 @@ class ServiceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the service booking form.
+     *
+     * @response 200
      */
-    
+    public function quote()
+    {
+        return view('Service.quote');
+    }
+
+    /**
+     * Show the service creation form.
+     * 
+     * @response 200
+     */
     public function create()
     {
         return view('service/create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created service.
+     * @response 302 {
+     *   "message": "Successfully booked, please check your email."
+     * }
      */
     public function store(ServiceRequest $request)
     {
-        // Retrieve the authenticated user ID
+
         $userId = auth()->id();
+        $validated = $request->validated();
+        $validated['user_id'] = $userId;
+        $service = Services::create($validated);
 
-       //the service/create method does not have a userid passed to it
-       
-        // Add the user ID to the validated request data
-        $data = $request->validated();
-        $data['user_id'] = $userId;
-
-        // Create the new service with user ID included
-        $service = Services::create($data);
-
-        // Send email
-        // Mail::to($data['email'])->send(new ServiceConfirmed($service));
+        Mail::to($validated['email'])->send(new ServiceConfirmed($service));
 
         return redirect('/')->with('success', 'Successfully booked, please check your email.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    /**
-     * Display the specified resource.
-     */
-    public function show($id =! null)
-    {
-        //checks if the user has an order
-        if($id == null){
-            return view('service.create');
-        }
-        //proceeds to fetch the user order with id
-        else{
-            $services = auth()->user()->services()->get();
-            return view('service.show', ['services' => $services]);
-        };
-       
-   
 
+    /**
+     * Display a list of booked service for the authenticated user.
+     * 
+     * @authenticated
+     * 
+     * @response 200 {
+     *   "data": [
+     *      {
+     *        "id": 1,
+     *        "service_type": "residential",
+     *        "pickup_city": "Cityville",
+     *        "dropoff_city": "Townburg",
+     *        "expected_time": "2025-01-01",
+     *        "weight_desc": "Light load"
+     *      }
+     *    ]
+     * }
+     */
+    public function show()
+    {
+        $userId = Auth::id();
+
+        $services = Services::whereUserId($userId)->get();
+        return view(
+            'service.show',
+            ['services' => $services]
+        );
     }
 
-    public function manage($id){
+    /**
+     * Manage a specific service.
+     * 
+     * @urlParam services int required The ID of the service. Example: 1
+     * 
+     * @response 200
+     */
+    public function manage(Services $services)
+    {
 
-        $services = Services::findOrFail($id); 
-    
         return view('service.manage', [
             'services' => $services
         ]);
     }
-     
-
-       
-
 
     /**
-     * Show the form for editing the specified resource.
+     * Edit a specific service.
+     * 
+     * @urlParam services int required The ID of the service. Example: 1
+     * 
+     * @response 200
      */
-    public function edit(string $id)
+    public function edit(Services $services)
     {
-        //
+        return view('service.edit', [
+            'services' => $services
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific service.
+     * 
+     * @response 200 {
+     *   "message": "Service updated successfully."
+     * }
      */
-    public function update(Request $request, string $id)
+    public function update(ServiceRequest $request, Services $services)
     {
-        //
-    }
+        Auth::id();
+        $validated = $request->validated();
 
+        $services->update($validated);
+
+        return view('service.manage', [
+            'services' => $services
+        ]);
+    }
     /**
-     * Remove the specified resource from storage.
+     * Delete a service.
+     * 
+     * @urlParam services int required The ID of the service. Example: 1
+     * 
+     * @response 204 {
+     *   "message": "Service deleted successfully."
+     * }
      */
-    public function destroy(string $id)
+    public function destroy(Services $services)
     {
-        //
-    }
-
-    public function quote(){
-        return view('Service.quote');
+        $services->delete();
     }
 }
