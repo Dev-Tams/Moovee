@@ -28,16 +28,23 @@ class Services extends Model
 {
     use HasFactory;
     protected $fillable = [
-             'service_type', 'pickup_street_address', 'pickup_landmark',
-            'pickup_city',  'pickup_state', 'dropoff_street_address',
-            'dropoff_landmark', 'dropoff_city',  'dropoff_state',
-            'date', 'time', 'weight_desc', 
+        'user_id',
+        'service_type',
+        'pickup_street_address',
+        'pickup_landmark',
+        'pickup_city',
+        'pickup_state',
+        'dropoff_street_address',
+        'dropoff_landmark',
+        'dropoff_city',
+        'dropoff_state',
+        'expected_time',
+        'weight_desc',
     ];
-    /**
-     * Get the user that owns the phone.
-     */
+
+
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'id');
     }
 }
