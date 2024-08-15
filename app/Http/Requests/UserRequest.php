@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\UserComment;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserComments extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,17 +22,10 @@ class UserComments extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:32',
-            'email' => 'required|email',
-            'message' => 'required|string|required|max:255'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'required|numeric|min:10',
+            'password' => 'required|string|min:6|confirmed',
         ];
-    }
-
-    public function register()
-    {
-        // ...
-        $this->app->bind(UserComments::class, function () {
-            return new Usercomments();
-        });
     }
 }

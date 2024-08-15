@@ -1,38 +1,45 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
+
+/**
+ * @Group Login 
+ * 
+ * endpoints to log in a user
+ */
 class LoginController extends Controller
 {
-    /*
-     * Show the login form.
-     */
+
     public function create()
     {
         return view('users.login');
     }
 
     /*
-     * Handle an authentication attempt.
+     * Logs in a user 
+     * 
+     * @response 200
+     * 
+     * @error invalid user email
      */
     public function authenticate(Request $request): RedirectResponse
     {
 
-        //parse credentials
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        //remeber me option
-        $remember = $request->has('remember');
 
-        //authenticated
+        $remember = $request->has('remember');
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-
             return redirect()->intended('/');
         }
 
@@ -42,7 +49,9 @@ class LoginController extends Controller
     }
 
     /*
-     * Log the user out of the application.
+     * Logs out a user
+     * 
+     * @response 200
      */
     public function logout(Request $request): RedirectResponse
     {
@@ -54,5 +63,3 @@ class LoginController extends Controller
         return redirect('/')->with('success', 'Logged out successfully.');
     }
 }
-
-

@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class StaticController extends Controller
 {
-    // controller for static pages
 
     public function Index()
     {
         return view('index');
     }
 
-    public function Contact(){
+    public function Contact()
+    {
         return view('Static/contact');
     }
 
@@ -27,19 +27,19 @@ class StaticController extends Controller
             'message' => 'required|string|max:255',
         ]);
 
-        // Store the data in the database
         $contact = Statics::create($validatedData);
-    
 
         return redirect('/')->with('success', 'submitted successfully, you will receive feedback soon!');
     }
-    public function About(){
-        //return view('Static/About');
-        dd('welcome to about');
+    public function About()
+    {
+
+        return view('404');
     }
 
-    public function Testimonials(){
-        //return view('Static/testimonials');
-       
+    public function terms()
+    {
+
+        return view('404');
     }
 }
