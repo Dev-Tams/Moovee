@@ -1,5 +1,5 @@
     @vite('resources/css/app.css')
-    @vite(['resources/js/app.js', 'vendor/courier/build'])
+    @vite(['resources/js/app.js'])
     <header class="">
         <nav class="flex justify-between h-16">
             <div class="box-border m-2">

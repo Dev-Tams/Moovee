@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80" # Laravel backend and frontend combined access
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - LOG_CHANNEL=stderr
+    depends_on:
+      - node
+
+  node:
+    image: node:18-alpine
+    working_dir: /var/www/html
+    volumes:
+      - ./public/build:/var/www/html/public/build
+    command: npm install && npm run dev
+    ports:
+      - "5173:5173"

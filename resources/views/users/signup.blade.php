@@ -7,7 +7,7 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/signin.css') }}"> -->
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}"> -->
-    @vite(['resources/js/app.js', 'vendor/courier/build'])
+    @vite(['resources/js/app.js'])
     <title>Moove Signup</title>
 </head>
 
