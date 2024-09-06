@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Service;
+use App\Models\Services;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -17,7 +17,7 @@ class ServiceConfirmed extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(protected Service $service)
+    public function __construct(protected Services $service)
     {
         
     }
@@ -42,7 +42,7 @@ class ServiceConfirmed extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'serviceConfirmed',
+            view: 'mail.serviceConfirmed',
             with: [
                 'name' => $this->service->name,
                 'phone'=>$this->service->phone,

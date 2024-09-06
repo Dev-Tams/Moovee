@@ -1,13 +1,12 @@
 @extends('footer')
-@extends('layout')
-@section('content')
+<x-layout>
     @if (session('about'))
         <div class="alert alert-success">
             {{ session('about') }}
         </div>
     @endif
-
-    <section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');" loading="lazy">
+</x-layout>
+    <section class="hero bg-slate-500 bg-cover  " style="background-image: url('{{ Vite::asset('resources/images/16615.jpg') }}');" loading="lazy">
         <div class="overlay"></div>
         <div class="content">
             <h1>Make your Moovee</h1>
@@ -23,7 +22,7 @@
             <h2 class="text-4xl">Our Services</h2>
             <div class="service flex justify-evenly">
                 <div class="card-img">
-                    <img src="{{ asset('css/images/1920.jpg') }}"
+                    <img src="{{ Vite::asset('resources/images/1920.jpg') }}"
                         alt="Business owner ready to ship her customers' orders. Close up of female hands putting tape on a big package with products"
                         loading="lazy">
                 </div>
@@ -36,7 +35,7 @@
             </div>
             <div class="business flex justify-evenly items-center flex-row-reverse ">
                 <div class="card-img">
-                    <img src="{{ asset('css/images/1268.jpg') }}"
+                    <img src="{{ Vite::asset('resources/images/1268.jpg') }}"
                         alt="Young worker loading cardboard boxes in a
                  delivery van and communicating with his colleague"
                         loading="lazy">
@@ -67,6 +66,5 @@
 
 
     <script src="script.js"></script>
-@endsection
 @section('footer')
 @endsection
