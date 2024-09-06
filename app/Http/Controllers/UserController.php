@@ -36,7 +36,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
 
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
 
         $user = User::create([
             'name' => $validatedData['name'],
@@ -44,7 +44,12 @@ class UserController extends Controller
             'phone_number' => $validatedData['phone_number'],
             'password' => bcrypt($validatedData['password']),
         ]);
-        event(new Registered($user));
+        
+        /**
+         *To send a email verification 
+         * 
+         *  event(new Registered($user)); 
+         * */
 
 
         auth()->login($user);
