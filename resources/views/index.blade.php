@@ -1,13 +1,12 @@
 @extends('footer')
-@extends('layout')
-@section('content')
+<x-layout>
     @if (session('about'))
         <div class="alert alert-success">
             {{ session('about') }}
         </div>
     @endif
-
-    <section class="hero bg-slate-500 bg-cover  " style="background-image: url('css//images/16615.jpg');" loading="lazy">
+</x-layout>
+    <section class="hero bg-slate-500 bg-cover  " style="background-image: url('{{ Vite::asset('resources/images/16615.jpg') }}');" loading="lazy">
         <div class="overlay"></div>
         <div class="content">
             <h1>Make your Moovee</h1>
@@ -67,6 +66,5 @@
 
 
     <script src="script.js"></script>
-@endsection
 @section('footer')
 @endsection

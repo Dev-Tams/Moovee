@@ -13,13 +13,13 @@
     <title>Moove</title>
     @vite('resources/css/app.css')
     @vite(['resources/js/app.js'])
-    <link rel="stylesheet" type="text/css" href="{{ Vite::asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
     <x-flash-success />
 
-    @include('nav')
+    @include('./nav')
     @yield('content')
 
     @if (session()->has('success'))

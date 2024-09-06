@@ -10,11 +10,10 @@
 
     <header class=" containertext-[#fff] mt-2">
         <div class="flex justify-between">
-            <!-- Logo -->
             <div class="logo ml-8 mt-2 pl-8">
                 <a href="/"><img src="{{ Vite::asset('resources/images/mlogo-nobg.png') }}" alt="logo"></a>
             </div>
-            <!-- Navigation Links -->
+    
             <nav class="navbar flex-grow w-screen h-20 pt-2">
                 <ul class="flex justify-center space-x-4 text-lg">
                     <li><a href="about"
@@ -46,6 +45,7 @@
                             </li>
                         </ul>
                     </div>
+                    
                     <!-- Display this for authenticated users -->
                 @else
                     <div class="flex items-baseline">
