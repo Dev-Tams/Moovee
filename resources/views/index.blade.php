@@ -23,7 +23,7 @@
             <h2 class="text-4xl">Our Services</h2>
             <div class="service flex justify-evenly">
                 <div class="card-img">
-                    <img src="{{ asset('css/images/1920.jpg') }}"
+                    <img src="{{ Vite::asset('resources/images/1920.jpg') }}"
                         alt="Business owner ready to ship her customers' orders. Close up of female hands putting tape on a big package with products"
                         loading="lazy">
                 </div>
@@ -36,7 +36,7 @@
             </div>
             <div class="business flex justify-evenly items-center flex-row-reverse ">
                 <div class="card-img">
-                    <img src="{{ asset('css/images/1268.jpg') }}"
+                    <img src="{{ Vite::asset('resources/images/1268.jpg') }}"
                         alt="Young worker loading cardboard boxes in a
                  delivery van and communicating with his colleague"
                         loading="lazy">

@@ -3,7 +3,7 @@
     <header class="">
         <nav class="flex justify-between h-16">
             <div class="box-border m-2">
-                <a href="/"><img src="{{ asset('css/images/mlogo-nobg.png') }}" alt="logo"
+                <a href="/"><img src="{{ Vite::asset('resources/images/mlogo-nobg.png') }}" alt="logo"
                         style="width:100px; background: #000;"></a>
 
             </div>
