@@ -25,7 +25,7 @@
              <form action="{{ route('service.store') }}" method="post">
                  @csrf
 
-                 <label for="service_type" class="text-base font-sans ml-4 font-semibold">Service Type:</label><br>
+               <x-label label="Service Type">Service Type</x-label>
                  <select id="service-type" name="service_type"
                      class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm focus:outline focus:ring-2 placeholder-slate-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
                      <option value="residential-moving">Residential Moving</option>
@@ -37,8 +37,7 @@
                  <br>
 
                  <div class="pickup">
-                     <label for="pickup-location" class="text-base font-sans ml-4 font-semibold">Pick-up
-                         Location:</label><br>
+                    <x-label label="Pickup">Pickup Location</x-label>
                      <input type="text" id="pickup-location" name="pickup_street_address"
                          placeholder="Street Address" value="{{ old('pickup_street_address') }}"
                          class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
@@ -83,8 +82,7 @@
                  </div>
 
                  <div class="Dropoff">
-                     <label for="dropoff-location" class="text-base font-sans ml-4 font-semibold">Dropoff
-                         Location:</label><br>
+                     <<x-label label="Dropoff Location">Dropoff Location</x-label>
                      <input type="text" id="dropoff-location" name="dropoff_street_address"
                          placeholder="Street Address" value="{{ old('dropoff_street_address') }}"
                          class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
@@ -127,8 +125,7 @@
 
                  </div>
                  <div class="flex">
-                     <label for="time" class="w-1/2 text-base font-sans ml-4 font-semibold">Expected
-                         Time:</label><br>
+                    <x-label label="expected_time"> Expected Time</x-label>
                  </div>
                  <div class="flex w-[28rem]">
                      <input type="text" id="expected_time" name="expected_time" value="{{ old('expected_time') }}"
@@ -142,8 +139,7 @@
 
 
 
-                 <label for="weight" class="text-base font-sans ml-4 font-semibold mt-1">Weight or Number of
-                     Items:</label><br>
+                 <x-label label="weight">Weight of Items</x-label>
                  <textarea name="weight_desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items"
                      value="{{ old('weight_desc') }}"
                      class="h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg focus:ring-2 focus:ring-blue-500 resize-y"
@@ -156,8 +152,8 @@
                          <p>{{ $message }}</p>
                      @enderror
 
-                     <label for="accept_terms" class="text-base font-sans ml-1 font-semibold">Accept Terms <span><a
-                                 href="/#">T&C</a></span></label>
+                     <x-label label="terms">Accept Terms
+                        <span><ahref="/#">T&C</a></span></x-label>
                  </div>
 
                  <input type="submit" value="Book"
