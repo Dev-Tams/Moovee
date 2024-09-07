@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80" # Laravel backend and frontend combined access
+      - "80:80" 
     volumes:
       - .:/var/www/html
     environment:
