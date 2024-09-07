@@ -10,9 +10,9 @@ services:
     volumes:
       - .:/var/www/html
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - LOG_CHANNEL=stderr
+    - APP_ENV=production
+    - APP_DEBUG=true
+    - LOG_CHANNEL=stderr
     depends_on:
       - node
 
@@ -21,6 +21,6 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./public/build:/var/www/html/public/build
-    command: npm install && npm run dev
+    command: npm ci && npm run build
     ports:
       - "5173:5173"
