@@ -26,142 +26,74 @@
                 @method('PUT')
                 @csrf
 
-                <label for="service_type" class="text-base font-sans ml-4 font-semibold">Service Type:</label><br>
+                <x-label label="Service Type">Service Type</x-label>
                 <select id="service-type" name="service_type"
                     class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm focus:outline focus:ring-2 placeholder-slate-500 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
                     <option value="residential-moving">Residential Moving</option>
                     <option value="commercial-moving">Commercial Moving</option>
                 </select>
-                @error('service_type')
-                    <p>{{ $message }}</p>
-                @enderror
-                <br>
+
 
                 <div class="pickup">
-                    <label for="pickup-location" class="text-base font-sans ml-4 font-semibold">Pick-up
-                        Location:</label><br>
-                    <input type="text" id="pickup-location" name="pickup_street_address" placeholder="Street Address"
-                        value="{{ $services->pickup_street_address }}"
-                        class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                    @error('pickup_street_address')
-                        <p>{{ $message }}</p>
-                    @enderror
-                    <br>
-                    <input type="text" id="pickup-location" name="pickup_landmark" placeholder="Close Landmark"
-                        value="{{ $services->pickup_landmark }}"
-                        class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2 placeholder-slate-500 
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                    @error('pickup_landmark')
-                        <p>{{ $message }}</p>
-                    @enderror
-                    <br>
-                    <div class="flex w-[28rem]">
-                        <input type="text" id="pickup-location" name="pickup_city" placeholder="City"
-                            value="{{ $services->pickup_city }}"
-                            class="w-1/2 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                        @error('pickup_city')
-                            <p>{{ $message }}</p>
-                        @enderror
-                        <br>
-                        <input type="text" id="pickup-location" name="pickup_state" placeholder="State"
-                            value="{{ $services->pickup_state }}"
-                            class="w-1/2 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2 placeholder-slate-500 
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                        @error('pickup_state')
-                            <p>{{ $message }}</p>
-                        @enderror
-                    </div>
+                    <x-label label="Pickup">Pickup Location</x-label>
+                    <x-service-create name="pickup_street_address" placeholder="Street Address"
+                        value="{{ $services->pickup_street_address }}" />
+                    <x-service-create name="pickup_landmark" placeholder="Landmark"
+                        value="{{ $services->pickup_landmark }}" />
 
-                    <br>
+                    <div class="flex w-[28rem]">
+                        <x-trim-service-create name="pickup_city" placeholder="city"
+                            value="{{ $services->pickup_city }}" />
+                        <x-trim-service-create name="pickup_state" placeholder="state"
+                            value="{{ $services->pickup_state }}" />
+                    </div>
 
 
 
                 </div>
 
                 <div class="Dropoff">
-                    <label for="dropoff-location" class="text-base font-sans ml-4 font-semibold">Dropoff
-                        Location:</label><br>
-                    <input type="text" id="dropoff-location" name="dropoff_street_address"
-                        placeholder="Street Address" value="{{ $services->dropoff_street_address }}"
-                        class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2 placeholder-slate-500 
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                    @error('dropoff_street_address')
-                        <p>{{ $message }}</p>
-                    @enderror
-                    <br>
-                    <input type="text" id="dropoff-location" name="dropoff_landmark" placeholder="Close Landmark"
-                        value="{{ $services->dropoff_landmark }}"
-                        class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2 
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                    @error('dropoff_landmark')
-                        <p>{{ $message }}</p>
-                    @enderror
-                    <br>
+                    <x-label label="Dropoff Location">Dropoff Location</x-label>
+                    <x-service-create name="dropoff_street_address" placeholder=" Dropoff Street Address"
+                        value="{{ $services->dropoff_street_address }}" />
+                    <x-service-create name="dropoff_landmark" placeholder="Dropoff landmark"
+                        value="{{ $services->dropoff_landmark }}" />
+
                     <div class="flex w-[28rem]">
-                        <input type="text" id="dropoff-location" name="dropoff_city" placeholder="City"
-                            value="{{ $services->dropoff_city }}"
-                            class="w-1/2 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2 placeholder-slate-500 
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                        @error('dropoff_city')
-                            <p>{{ $message }}</p>
-                        @enderror
-                        <br>
-                        <input type="text" id="dropoff-location" name="dropoff_state" placeholder="State"
-                            value="{{ $services->dropoff_state }}"
-                            class="w-1/2 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                                                             focus:outline focus:ring-2
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                        @error('dropoff_state')
-                            <p>{{ $message }}</p>
-                        @enderror
-                        <br>
+                        <x-trim-service-create name="dropoff_city" placeholder="Dropoff city"
+                            value="{{ $services->dropoff_city }}" />
+                        <x-trim-service-create name="dropoff_state" placeholder="Dropoff state"
+                            value="{{ $services->dropoff_state }}" />
                     </div>
-
-
-
                 </div>
                 <div class="flex">
-                    <label for="time" class="w-1/2 text-base font-sans ml-4 font-semibold">Expected
-                        Time:</label><br>
+                    <x-label label="expected_time"> Expected Time</x-label>
                 </div>
                 <div class="flex w-[28rem]">
-                    <input type="text" id="expected_time" name="expected_time"
-                        value="{{ $services->expected_time }}"class="w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
-                    focus:outline focus:ring-2 placeholder-slate-500
-                    invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-                    @error('expected_time')
-                        <p>{{ $message }}</p>
-                    @enderror
+                    <x-service-create name="expected_time" placeholder="expected time for arrival"
+                        value="{{ $services->expected_time }}" />
                 </div>
 
 
+                <x-label label="weight">Weight of Items</x-label>
 
-                <label for="weight" class="text-base font-sans ml-4 font-semibold mt-1">Weight or Number of
-                    Items:</label><br>
+
                 <textarea name="weight_desc" id="weight-desc" cols="30" rows="10" placeholder="Describe Items"
-                    value="{{ $services->weight_desc }}"class="h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg focus:ring-2 focus:ring-blue-500 resize-y"
+                    value="{{ $services->weight_desc }}"
+                    class="h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg focus:ring-2 focus:ring-blue-500 resize-y"
                     style="width: 375px; height: 157px;"></textarea>
                 <!-- reCAPTCHA -->
+
                 <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div><br>
                 <div>
-                    <input type="checkbox" id="accept_terms" name="accept_terms" class="ml-6">
-                    @error('accept_terms')
-                        <p>{{ $message }}</p>
-                    @enderror
 
-                    <label for="accept_terms" class="text-base font-sans ml-1 font-semibold">Accept Terms <span><a
-                                href="/#">T&C</a></span></label>
+
+                    <x-service-create type="checkbox" name="accept_terms" class="ml-6" />
+                    <x-label label="terms">Accept Terms
+                    </x-label>
                 </div>
 
+                
                 <input type="submit" value="Update"
                     class="p-2 w-96 h-12  border-none text-base rounded-lg mx-7 mt-4 bg-blue-400 text-white font-mono hover:bg-[#767676]">
             </form>

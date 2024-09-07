@@ -31,40 +31,43 @@
                      <option value="residential-moving">Residential Moving</option>
                      <option value="commercial-moving">Commercial Moving</option>
                  </select>
-                
+
 
                  <div class="pickup">
                      <x-label label="Pickup">Pickup Location</x-label>
-                     <x-service-create name="pickup_street_address" placeholder="Street Address" />
-                     <x-service-create name="pickup_landmark" placeholder="Landmark" />
-        
+                     <x-service-create name="pickup_street_address" placeholder="Street Address"
+                         value="{{ old('pickup_streeet_address') }}" />
+                     <x-service-create name="pickup_landmark" placeholder="Landmark" value="{{ old('pickup_landmark') }}" />
+
                      <div class="flex w-[28rem]">
-                        <x-trim-service-create name="pickup_city" placeholder="city"/>
-                        <x-trim-service-create name="pickup_state" placeholder="state"/>
+                         <x-trim-service-create name="pickup_city" placeholder="city" value="{{ old('pickup_city') }}" />
+                         <x-trim-service-create name="pickup_state" placeholder="state" value="{{ old('pickup_state') }}" />
                      </div>
 
-    
+
 
                  </div>
 
                  <div class="Dropoff">
                      <x-label label="Dropoff Location">Dropoff Location</x-label>
-                     <x-service-create name="dropoff_street_address" placeholder=" Dropoff Street Address" />
-                         <x-service-create name="dropoff_landmark" placeholder="Dropoff landmark" />
-                       
-                         <div class="flex w-[28rem]">
-                            <x-trim-service-create name="dropoff_city" placeholder="Dropoff city"/>
-                            <x-trim-service-create name="dropoff_state" placeholder="Dropoff state"/>
-                         </div>
+                     <x-service-create name="dropoff_street_address" placeholder=" Dropoff Street Address"
+                         value="{{ old('dropoff_street_address') }}" />
+                     <x-service-create name="dropoff_landmark" placeholder="Dropoff landmark"
+                         value="{{ old('dropoff_landmark') }}" />
+
+                     <div class="flex w-[28rem]">
+                         <x-trim-service-create name="dropoff_city" placeholder="Dropoff city"
+                             value="{{ old('dropoff_city') }}" />
+                         <x-trim-service-create name="dropoff_state" placeholder="Dropoff state"
+                             value="{{ old('dropoff_state') }}" />
+                     </div>
                  </div>
                  <div class="flex">
                      <x-label label="expected_time"> Expected Time</x-label>
                  </div>
                  <div class="flex w-[28rem]">
-                    <x-service-create name="expected_time" placeholder="expected time for arrival" />
-                     @error('expected_time')
-                         <p>{{ $message }}</p>
-                     @enderror
+                     <x-service-create name="expected_time" placeholder="expected time for arrival"
+                         value="{{ old('expected_time') }}" />
                  </div>
 
 
@@ -77,7 +80,7 @@
                  <!-- reCAPTCHA -->
                  <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div><br>
                  <div>
-                     <x-service-create type="checkbox" name="accept_terms" class="ml-6"/>
+                     <x-service-create type="checkbox" name="accept_terms" class="ml-6" />
                      <x-label label="terms">Accept Terms
                          <span><ahref="/#">T&C</a></span></x-label>
                  </div>

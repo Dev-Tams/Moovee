@@ -28,7 +28,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Show the service booking form.
+     * Show the service quote form.
      *
      * @response 200
      */

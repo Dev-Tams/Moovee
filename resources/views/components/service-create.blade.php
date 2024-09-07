@@ -1,7 +1,7 @@
 @props([
     'type' => 'text',
     'placeholder' => '',
-    'value' => '',
+    'value' => '{{ old($name) }}',
     'class' => 'w-96 h-10 p-2 m-4 rounded-lg mt-1 block px-3 py-2 text-lg shadow-sm
            focus:outline focus:ring-2
            invalid:border-pink-500 invalid:text-pink-600
@@ -9,16 +9,10 @@
     'name' => '',
 ])
 
-<input
-    type="{{ $type }}"
-    name="{{ $name }}"
-    placeholder="{{ $placeholder }}"
-    value="{{ old($name)}}"
-    class="{{ $class }}"
-    {{ $attributes }}
-/>
+<input type="{{ $type }}" name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{$value}}"
+    class="{{ $class }}" {{ $attributes }} />
 
 @error($name)
-<p>{{ $message }}</p>
+    <p>{{ $message }}</p>
 @enderror
 <br>
