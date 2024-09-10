@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+php artisan down
+
 echo "Running composer"
-composer global require hirak/prestissimo
-composer install --no-dev --working-dir=/var/www/html
+
+composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
 
 echo "Caching config/routes..."
 php artisan optimize
@@ -9,8 +12,13 @@ php artisan optimize
 echo "Running migrations..."
 php artisan migrate --force
 
+php artisan auth:clear-resets
+
 echo "Building frontend assets..."
 npm ci              
-npm run build
+npm run production --silent
 
-echo "Deployment complete
+php artisan up
+
+echo "Deployment complete"
+
