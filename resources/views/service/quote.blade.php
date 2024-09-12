@@ -26,31 +26,17 @@
                 <form action="#" method="POST">
                     @csrf
                     <div class="flex flex-col">
-                        <input type="text" name="depature" id="depature" placeholder="Where are you moving from?"
-                            class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg shadow-sm 
-                                                            focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200 hover:shadow-none
-                                                             invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
+                     
+                        <x-info-card type="text" name="depature" placeholder="Where are you moving from?" />
+                        <x-info-card type="text" name="depature" placeholder="Where are you moving to?" />
+                        <x-info-card type="text" name="depature" placeholder="What is your preferred move date?" />
 
-
-                        <input type="text" name="destination" id="depature_city"
-                            placeholder="where are you moving to?"
-                            class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg shadow-sm
-                                                             focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200 hover:shadow-none
-                                                              invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-
-
-                        <input type="text" name="date" id="depature_date" placeholder="What is your move date?"
-                            class="w-96 h-11 p-2 m-4 rounded-lg mt-1 block px-3 py-2 border-none text-lg 
-                                                                shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-100 placeholder-slate-500 border-slate-200
-                                                                 hover:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-
+                        
 
                         <div class="flex items-center border-none rounded-lg bg-slate-100 w-96 p-2 h-11 m-4 mt-1 ">
                             <!--      ring-1 hover:shadow-none  -->
-                            <input type="number" name="quantity" id="quantity" placeholder="Enter quantity"
-                                class="w-full h-11 rounded-l-lg border-none text-lg focus:outline-none focus:ring-2  focus:ring-blue-500 
-                                                                                 bg-slate-100 placeholder-slate-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500">
-
+                            <x-info-card type="number" name="weight" placeholder="Weight" class="w-full h-11 rounded-l-lg border-none text-lg focus:outline-none focus:ring-2  focus:ring-blue-500 
+                                                                                 bg-slate-100 placeholder-slate-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500" />
                             <select id="weight" name="weight"
                                 class=" p-2 h-full px-3 py-2 rounded-r-lg border-none bg-transparent pl-2 pr-7 text-gray-500  sm:text-sm">
                                 <option class="text-lg text-red-500">lbs</option>
