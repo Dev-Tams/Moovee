@@ -23,7 +23,7 @@ Route::controller(StaticController::class)->group(function () {
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
     Route::get('/terms', 'terms');
-    Route::post('/contact', 'store');
+    Route::post('/contact', 'store')->name('contact.store');
 });
 
 

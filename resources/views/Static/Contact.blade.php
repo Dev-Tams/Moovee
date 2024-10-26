@@ -19,7 +19,7 @@
 
         <section class="bg-white rounded-lg mx-auto max-w-lg my-4 p-4 sm:p-10">
 
-            <form action="{{route('contact.store')}}" method="POST" class="box-border ">
+            <form action="{{ route('service.store') }}" method="post" class="box-border ">
                 @csrf
                 <div>
                     <label for="Name" class="block font-bold text-lg mb-0 ml-4"> Your Name</label>
